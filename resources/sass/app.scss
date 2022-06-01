@@ -7,7 +7,10 @@
 $fa-font-path: "../webfonts";
 
 // Bootstrap
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@mdi/font/css/materialdesignicons.css';
+
+// toastr
+@import "~toastr/toastr.scss";
 
 // toastr
 @import "~toastr/toastr.scss";

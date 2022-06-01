@@ -20,7 +20,7 @@ class UserFactory extends Factory
             'nb_usuario' => 'usergeneral',
             'tx_email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'nb_password' => bcrypt('password'), // password
+            'password' => bcrypt('password'), // password
             'nu_status' => 0, // password
             'remember_token' => Str::random(10),
         ];

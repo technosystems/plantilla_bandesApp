@@ -91,6 +91,7 @@
        </div>
     </div>
     @include('admin.user.partials.modal.create')
+    @include('admin.user.partials.modal.edit')
   </div>
 
 
@@ -168,7 +169,7 @@
             },
         },
         
-        {"defaultContent": "<div class='text-center'><button class='btn btn-primary btn-sm btn-circle btnEditar'><i class='mdi mdi-pencil'></i></button><button class='btn btn-danger btn-sm btn-circle btnBorrar'><i class='mdi mdi-delete'></i></button></div>"}
+        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnEditar'><i class='mdi mdi-pencil'></i></button><button class='btn btn-danger btn-sm btn-circle btnBorrar'><i class='mdi mdi-delete'></i></button></div>"}
     ]
 });
     var fila; //captura la fila, para editar o eliminar
@@ -202,7 +203,7 @@ $('#main-form').submit(function(e){
     var data = $('#main-form').serialize();        
     $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');             
     $.ajax({
-         url: "/usuarios/" + user_id,
+         url: "/user/" + user_id,
           headers: {'X-CSRF-TOKEN': $('#main-form #_token').val()},
           type: "PUT",
           datatype:"json",  
@@ -229,7 +230,7 @@ $('#main-form').submit(function(e){
             toastr.error(value);
             return false;
           });
-          $('input').iCheck('enable');
+          //$('input').iCheck('enable');
           $('#main-form input, #main-form button').removeAttr('disabled');
           $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
         }
@@ -316,18 +317,18 @@ $('#main-form').submit(function(e){
       }).then(function (result) {
         if (result.value) {
         $.ajax({
-          url: "/usuarios/" +user_id +'/delete' ,
+          url: "/users/"+user_id+'/delete' ,
           type: "GET",
           datatype:"json",    
-          data:  {user_id:user_id},    
+          
           success: function() {
               tablaModulos.row(fila.parents('tr')).remove().draw();  
                var timerInterval;
                   Swal.fire({
                     title: '¡Datos eliminados!',
-                    type: 'success',
-                    timer: 2000,
-                    timerProgressBar: true,
+                    icon: 'success',
+                    timer: 1000,
+                    timerProgressBar: false,
                     didOpen: () => {
                       Swal.showLoading();
                       timerInterval = setInterval(() => {

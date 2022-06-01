@@ -1,42 +1,4 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
- -->
 <!-- beautify ignore:start -->
 <html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-default" data-assets-path="../../assets/" data-template="vertical-menu-template">
 
@@ -65,6 +27,7 @@
     <link rel="stylesheet" href="/assets/vendor/fonts/boxicons.css"/>
     <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome.css" />
     <link rel="stylesheet" href="/assets/vendor/fonts/flag-icons.css" />
+    <link rel="stylesheet" href="/css/app.css" />
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
@@ -89,7 +52,7 @@
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <script src="../../assets/vendor/js/template-customizer.js"></script>
+   
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
     
@@ -244,7 +207,7 @@
 <!-- / Footer -->
 
           
-          <div class="content-backdrop fade"></div>
+          
         </div>
         <!-- Content wrapper -->
       </div>
@@ -254,20 +217,12 @@
     
     
     <!-- Overlay -->
-    <div class="layout-overlay layout-menu-toggle"></div>
+   
     
-    
-    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-    <div class="drag-target"></div>
-    
+ 
   </div>
   <!-- / Layout wrapper -->
 
-  
-  <div class="buy-now">
-    <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank" class="btn btn-danger btn-buy-now">Buy Now</a>
-  </div>
-  
 
   
 

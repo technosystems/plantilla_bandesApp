@@ -40,6 +40,11 @@ class LoginController extends Controller
     }
 
 
+    public function username()
+    {
+        return 'tx_email';
+    }
+
      protected function credentials(Request $request)
     {
 

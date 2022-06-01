@@ -39,7 +39,7 @@
         </div>
         <div class="mb-3">
           <label class="form-label" for="add-user-password">Contraseña</label>
-          <input type="password" id="add-user-password" class="form-control" placeholder="*******" aria-label="john.doe@example.com" name="nb_password" />
+          <input type="password" id="add-user-password" class="form-control" placeholder="*******" aria-label="john.doe@example.com" name="password" />
         </div>
         <div class="mb-4">
           <label class="form-label" for="user-plan">Acceso al sistema</label>
@@ -80,7 +80,7 @@
            'nb_usuario': {
             required: true
           },
-           'nb_password': {
+           'password': {
             required: true
           },
            'tx_email': {

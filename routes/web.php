@@ -25,6 +25,7 @@ Route::middleware(['auth',])->group(function () {
 
   Route::resource('user', 'Admin\UserController');
   Route::get('users', 'Admin\UserController@getUser');
+  Route::get('users/{user_id}/delete', 'Admin\UserController@delete');
   Route::resource('logins', 'LoginController');
   Route::resource('permission', 'PermissionController');
 

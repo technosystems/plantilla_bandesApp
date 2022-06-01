@@ -73,7 +73,7 @@ switch($nombre_dia)
                                  @error('email') is-invalid @enderror"
                                  id="email"
                                  autocomplete="off"
-                                 name="email"
+                                 name="tx_email"
                                  value="{{ old('email') }}"
                                  placeholder="example@mail.com"
                                  autocomplete="email" autofocus>

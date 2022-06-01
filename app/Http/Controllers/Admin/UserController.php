@@ -97,7 +97,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        //dd($request);
+
+        $user = User::find($id);
+        $user->update($request->except('role'));
+
+        if ($request->has('role'))
+        {
+            $user->assignRole($request->role);
+        }
+
+        return json_encode(['success' => true]);
     }
 
     /**
@@ -106,8 +117,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $user = User::find($id);
+         $user->delete();
+          return json_encode(['success' => true]);
     }
 }
