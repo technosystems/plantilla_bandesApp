@@ -75,11 +75,11 @@
               {!! Form::open(['route' => ['permisos.store'],'method' => 'POST']) !!}
                 <div class="col-12 mb-3">
                   <label class="form-label" for="modalPermissionName">Nombre del permiso</label>
-                  <input type="text" name="name" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Intrese el nombre del permiso." autofocus />
+                  <input type="text" name="name" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Intrese el nombre del permiso." autofocus required />
                 </div>
                
                 <div class="col-12 text-center demo-vertical-spacing">
-                  <button type="submit" class="btn btn-primary me-sm-3 me-1">Create Permission</button>
+                  <button type="submit" class="btn btn-primary me-sm-3 me-1">Guardar</button>
                   <button type="reset" class="btn btn-label-secondary" data-bs-dismiss="modal" aria-label="Close">Discard</button>
                 </div>
                {!! Form::close()!!}
