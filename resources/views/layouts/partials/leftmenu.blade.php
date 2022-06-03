@@ -16,7 +16,9 @@
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Opciones principales</span>
     </li>
-    <li class="menu-item open">
+
+    <!-- class="menu-item open" -->
+    <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-user"></i>
         <div data-i18n="Seguridad">Seguridad</div>
@@ -61,5 +63,46 @@
         </li>
       </ul>
     </li>
+
+         <li class="menu-item ">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-user"></i>
+        <div data-i18n="Pruebas Covid">Pruebas Covid</div>
+      </a>
+      <ul class="menu-sub">
+        
+        <li class="menu-item {{ request()->routeIs('user*') ? 'active open' : '' }}">
+          <a href="/user" class="menu-link">
+            <div data-i18n="Tablero Principal">Panel Principal</div>
+          </a>
+        
+        </li>
+         <li class="menu-item {{ request()->routeIs('roles*') ? 'active open' : '' }}">
+           <a href="/roles" class="menu-link">
+            <div data-i18n="Empleados">Empleados</div>
+          </a>
+      
+        </li>
+         <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
+          <a href="/permisos" class="menu-link">
+            <div data-i18n="Visitantes">Visitantes</div>
+          </a>
+          
+        </li>
+         <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
+          <a href="/permisos" class="menu-link">
+            <div data-i18n="Consulta">Consulta</div>
+          </a>
+          
+        </li>
+        <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
+          <a href="/permisos" class="menu-link">
+            <div data-i18n="Reportes">Reportes</div>
+          </a>
+          
+        </li>
+      </ul>
+    </li>
+
   </ul>
   

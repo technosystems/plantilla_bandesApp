@@ -126,7 +126,7 @@ eval("module.exports = function() {\n\tthrow new Error(\"define cannot be used i
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("/* toastr */\nwindow.toastr = __webpack_require__(/*! toastr */ \"./node_modules/toastr/toastr.js\");\ntoastr.options.preventDuplicates = true;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYXBwLmpzPzZkNDAiXSwibmFtZXMiOlsid2luZG93IiwidG9hc3RyIiwicmVxdWlyZSIsIm9wdGlvbnMiLCJwcmV2ZW50RHVwbGljYXRlcyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQUEsTUFBTSxDQUFDQyxNQUFQLEdBQWdCQyxtQkFBTyxDQUFDLCtDQUFELENBQXZCO0FBQ0FELE1BQU0sQ0FBQ0UsT0FBUCxDQUFlQyxpQkFBZixHQUFtQyxJQUFuQyIsImZpbGUiOiIuL3Jlc291cmNlcy9qcy9hcHAuanMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiB0b2FzdHIgKi9cbndpbmRvdy50b2FzdHIgPSByZXF1aXJlKCd0b2FzdHInKTtcbnRvYXN0ci5vcHRpb25zLnByZXZlbnREdXBsaWNhdGVzID0gdHJ1ZTtcbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
+eval("/* toastr */\nwindow.toastr = __webpack_require__(/*! toastr */ \"./node_modules/toastr/toastr.js\");\ntoastr.options.preventDuplicates = true;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYXBwLmpzPzZkNDAiXSwibmFtZXMiOlsid2luZG93IiwidG9hc3RyIiwicmVxdWlyZSIsIm9wdGlvbnMiLCJwcmV2ZW50RHVwbGljYXRlcyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQUEsTUFBTSxDQUFDQyxNQUFQLEdBQWdCQyxtQkFBTyxDQUFDLCtDQUFELENBQXZCO0FBQ0FELE1BQU0sQ0FBQ0UsT0FBUCxDQUFlQyxpQkFBZixHQUFtQyxJQUFuQyIsImZpbGUiOiIuL3Jlc291cmNlcy9qcy9hcHAuanMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiB0b2FzdHIgKi9cclxud2luZG93LnRvYXN0ciA9IHJlcXVpcmUoJ3RvYXN0cicpO1xyXG50b2FzdHIub3B0aW9ucy5wcmV2ZW50RHVwbGljYXRlcyA9IHRydWU7XHJcbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
 
 /***/ }),
 
@@ -148,8 +148,8 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\facturapp\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\facturapp\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\plantilla_bandesApp\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\plantilla_bandesApp\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
