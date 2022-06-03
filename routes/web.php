@@ -20,6 +20,9 @@ Auth::routes();
 
 Route::middleware(['auth',])->group(function () {
 
+	Route::get('/', 'HomeController@index')->name('home');
+  Route::get('user-autocomplete', 'UserController@autocomplete');
+
   Route::resource('user', 'Admin\UserController');
   Route::get('users', 'Admin\UserController@getUser');
   Route::get('users/{user_id}/delete', 'Admin\UserController@delete');
