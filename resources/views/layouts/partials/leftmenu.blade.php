@@ -64,7 +64,7 @@
       </ul>
     </li>
 
-         <li class="menu-item ">
+    <li class="menu-item ">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-user"></i>
         <div data-i18n="Pruebas Covid">Pruebas Covid</div>
@@ -87,13 +87,16 @@
           <a href="/permisos" class="menu-link">
             <div data-i18n="Visitantes">Visitantes</div>
           </a>
-          
+        </li>
+        <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
+          <a href="/inventario" class="menu-link">
+            <div data-i18n="Inventario">Inventario</div>
+          </a>
         </li>
          <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
           <a href="/permisos" class="menu-link">
             <div data-i18n="Consulta">Consulta</div>
           </a>
-          
         </li>
         <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
           <a href="/permisos" class="menu-link">

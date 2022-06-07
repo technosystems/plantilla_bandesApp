@@ -4,9 +4,19 @@ namespace App\Http\Controllers\Covid;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\Models\Inventario;
 
 class InventarioController extends Controller
 {
+    protected $inv;
+
+    public function __construct(Inventario $inv)
+    {
+        $this->inv = $inv;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +25,9 @@ class InventarioController extends Controller
     public function index()
     {
         //
+        $inv = $this->inv->obtenerInventario();
+        //dd($inv);
+        return view('covid.inventario.index', ['inv' => $inv]);
     }
 
     /**
