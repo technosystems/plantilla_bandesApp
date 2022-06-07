@@ -21,7 +21,7 @@ Auth::routes();
 Route::middleware(['auth',])->group(function () {
 
 	Route::get('/', 'HomeController@index')->name('home');
-  Route::get('user-autocomplete', 'UserController@autocomplete');
+  //Route::get('user-autocomplete', 'UserController@autocomplete');
 
   Route::resource('user', 'Admin\UserController');
   Route::get('users', 'Admin\UserController@getUser');
@@ -31,6 +31,8 @@ Route::middleware(['auth',])->group(function () {
   Route::resource('roles', 'Admin\RolesController');
   Route::resource('personal', 'Covid\PersonalController');
   Route::resource('visitante', 'Covid\VisitanteController');
+  Route::resource('inventario', 'Covid\InventarioController');
+  
   //Route::resource('personal', Covid\PersonalController::class);
 
 });
