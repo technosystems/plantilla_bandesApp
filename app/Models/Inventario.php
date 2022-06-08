@@ -25,5 +25,10 @@ class Inventario extends Model
 	    return Inventario::find($id);
 	}
 
+	public function tipo()
+    {
+        return $this->belongsTo('App\Models\Tipo_prueba','id_tipo_prueba');
+	}
+
 
 }
