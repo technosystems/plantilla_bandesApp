@@ -11,9 +11,11 @@ class Inventario extends Model
 
     protected $table = "covid.inventario";
 
+    public $timestamps = false;
+
      protected $primaryKey = 'id_inventario';
 
-    protected $fillable = ['id_tipo_prueba', 'cantidad', 'observacion', 'estatus', 'fecha'];
+    protected $fillable = ['id_tipo_prueba', 'cantidad', 'observacion', 'fecha', 'estatus'];
 
 	protected $hidden = ['id_inventario'];
 
@@ -24,7 +26,7 @@ class Inventario extends Model
 
 	public function obtenerInventario()
 	{
-	    return Inventario::all();
+	    return Inventario::orderBy('id_inventario', 'DESC')->get();
 	}
 
 	public function obtenerInventarioId($id)
