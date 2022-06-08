@@ -26,7 +26,9 @@ class InventarioController extends Controller
     {
         //
         $inv = $this->inv->obtenerInventario();
-        //dd($inv);
+        //$inventario = Inventario::get();
+        
+        //dd($inventario);
         return view('covid.inventario.index', ['inv' => $inv]);
     }
 

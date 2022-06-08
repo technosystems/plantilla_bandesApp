@@ -11,9 +11,16 @@ class Inventario extends Model
 
     protected $table = "covid.inventario";
 
+     protected $primaryKey = 'id_inventario';
+
     protected $fillable = ['id_tipo_prueba', 'cantidad', 'observacion', 'estatus', 'fecha'];
 
 	protected $hidden = ['id_inventario'];
+
+	public function getpru()
+    {
+        return $this->hasOne(Tipo_prueba::class, 'id_tipo_prueba', 'id_tipo_prueba');
+	}
 
 	public function obtenerInventario()
 	{
@@ -25,10 +32,7 @@ class Inventario extends Model
 	    return Inventario::find($id);
 	}
 
-	public function tipo()
-    {
-        return $this->belongsTo('App\Models\Tipo_prueba','id_tipo_prueba');
-	}
+	
 
 
 }
