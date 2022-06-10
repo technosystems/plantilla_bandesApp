@@ -2,19 +2,19 @@
 <!-- beautify ignore:start -->
 <html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-default" data-assets-path="../../assets/" data-template="vertical-menu-template">
 
-  
+
 <!-- Mirrored from demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 31 May 2022 16:04:33 GMT -->
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
-    
+    <title>Bandes</title>
+
     <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
     <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
     <!-- Canonical SEO -->
     <link rel="canonical" href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/favicon/favicon.ico" />
 
@@ -46,16 +46,16 @@
     @stack('styles')
 
     <!-- Page CSS -->
-    
+
     <!-- Helpers -->
     <script src="../../assets/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-   
+
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
-    
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -78,8 +78,8 @@
 <div class="layout-wrapper layout-content-navbar  ">
   <div class="layout-container">
 
-    
-    
+
+
 
 
 
@@ -88,7 +88,7 @@
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
-  
+
   <div class="app-brand demo ">
     <a href="index.html" class="app-brand-link">
       <span class="app-brand-logo demo">
@@ -137,20 +137,20 @@
 
   <div class="menu-inner-shadow"></div>
 
-  
-  
+
+
     @include('layouts.partials.leftmenu')
-  
+
 
 </aside>
 <!-- / Menu -->
 
-    
+
 
     <!-- Layout container -->
     <div class="layout-page">
-      
-      
+
+
 
 
 
@@ -160,27 +160,27 @@
 
 
 @include('layouts.partials.sidebar')
-  
 
-  
+
+
 <!-- / Navbar -->
 
-      
+
 
       <!-- Content wrapper -->
       <div class="content-wrapper">
 
         <!-- Content -->
-        
+
           <div class="container-xxl flex-grow-1 container-p-y">
-            
+
                 @yield('content')
 
        </div>
      <!-- / Content -->
 
-          
-          
+
+
 
 <!-- Footer -->
 <footer class="content-footer footer bg-footer-theme">
@@ -192,39 +192,39 @@
       , made with ❤️ by <a href="https://themeselection.com/" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
     </div>
     <div>
-      
+
       <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
       <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-      
+
       <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-      
-      
+
+
       <a href="https://themeselection.com/support/" target="_blank" class="footer-link d-none d-sm-inline-block">Support</a>
-      
+
     </div>
   </div>
 </footer>
 <!-- / Footer -->
 
-          
-          
+
+
         </div>
         <!-- Content wrapper -->
       </div>
       <!-- / Layout page -->
     </div>
 
-    
-    
+
+
     <!-- Overlay -->
-   
-    
- 
+
+
+
   </div>
   <!-- / Layout wrapper -->
 
 
-  
+
 
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
@@ -232,11 +232,11 @@
   <script src="/assets/vendor/libs/popper/popper.js"></script>
   <script src="/assets/vendor/js/bootstrap.js"></script>
   <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-  
+
   <script src="/assets/vendor/libs/hammer/hammer.js"></script>
   <script src="/assets/vendor/libs/i18n/i18n.js"></script>
   <script src="/assets/vendor/libs/typeahead-js/typeahead.js"></script>
-  
+
   <script src="/assets/vendor/js/menu.js"></script>
   <!-- endbuild -->
 
@@ -247,7 +247,7 @@
   <script src="/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
   <script src="/assets/vendor/libs/datatables-responsive/datatables.responsive.js"></script>
   <script src="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.js"></script>
-  
+
   <script src="/assets/vendor/libs/select2/select2.js"></script>
   <script src="/assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
   <script src="/assets/vendor/libs/cleavejs/cleave.js"></script>
@@ -281,9 +281,9 @@
         min: jQuery.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
       });
     });
-</script> 
+</script>
    @stack('scripts')
-  
+
 </body>
 
 
