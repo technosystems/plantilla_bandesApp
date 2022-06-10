@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Covid;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\Models\Personal;
 
 class PersonalController extends Controller
 {
@@ -14,7 +17,12 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        //
+        return view('covid.personal.index');
+    }
+
+    public function getPersonal()
+    {
+        return Personal::get();
     }
 
     /**

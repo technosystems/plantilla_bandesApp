@@ -32,6 +32,7 @@ Route::middleware(['auth',])->group(function () {
   Route::resource('personal', 'Covid\PersonalController');
   Route::resource('visitante', 'Covid\VisitanteController');
   Route::resource('inventario', 'Covid\InventarioController');
+  Route::get('personals', 'Covid\PersonalController@getPersonal');
   
   //Route::resource('personal', Covid\PersonalController::class);
 
