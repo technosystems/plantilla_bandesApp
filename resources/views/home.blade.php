@@ -30,8 +30,8 @@
                   </div>
 
                 </div>
-
-                <div class="col-4 mb-4">
+ <!-- / reporte-->
+                <div class="col-md-12 col-lg-2">
                     <div class="card">
                       <div class="card-body">
                         <div class="d-flex align-items-end row">
@@ -74,7 +74,9 @@
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Empleados</h4>
-                            <small class="text-success fw-semibold"><i class=''></i>Ver mas</small>
+                              <a href="https://plantilla_bandesApp/resources/views/covid/personal.html" class="text-success fw-semibold">
+                                <div data-i18n="Ver mas">Ver mas</div>
+                              </a>
                           </div>
                         </div>
                       </div>
@@ -97,7 +99,9 @@
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Visitantes</h4>
-                            <small class="text-success fw-semibold"><i class=''></i>Ver mas</small>
+                             <a href="https://plantilla_bandesApp/resources/views/covid/personal.html" class="text-success fw-semibold">
+                                <div data-i18n="Ver mas">Ver mas</div>
+                              </a>
                           </div>
                         </div>
                       </div>
