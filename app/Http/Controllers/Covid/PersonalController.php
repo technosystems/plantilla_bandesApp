@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\Personal;
+use App\Models\Existencia;
 
 class PersonalController extends Controller
 {
@@ -17,12 +18,18 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        return view('covid.personal.index');
+        
+        $list_existencia = Existencia::get();
+
+        return view('covid.personal.index',compact('list_existencia'));
     }
 
     public function getPersonal()
     {
-        return Personal::get();
+        
+        $data = Personal::get(); 
+        //dd($data);
+        return $data;
     }
 
     /**

@@ -43,6 +43,13 @@
     <link rel="stylesheet" href="/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css">
     <link rel="stylesheet" href="/assets/vendor/libs/select2/select2.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
+
+    <link rel="stylesheet" href="/assets/vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/jquery-timepicker/jquery-timepicker.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/pickr/pickr-themes.css" />
+
     @stack('styles')
 
     <!-- Page CSS -->
@@ -219,10 +226,23 @@
   <script src="/assets/vendor/libs/datatables-responsive/datatables.responsive.js"></script>
   <script src="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.js"></script>
 
+
   <script src="/assets/vendor/libs/select2/select2.js"></script>
   <script src="/assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
   <script src="/assets/vendor/libs/cleavejs/cleave.js"></script>
   <script src="/assets/vendor/libs/cleavejs/cleave-phone.js"></script>
+
+  <script src="/assets/vendor/libs/flatpickr/flatpickr.js"></script>
+  <script src="/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+  <script src="/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.js"></script>
+  <script src="/assets/vendor/libs/jquery-timepicker/jquery-timepicker.js"></script>
+  <script src="/assets/vendor/libs/pickr/pickr.js"></script>
+
+  <!-- Main JS -->
+  <script src="../../assets/js/main.js"></script>
+
+  <!-- Page JS -->
+  <script src="../../assets/js/forms-pickers.js"></script>
 
   <!-- Main JS -->
   <script src="/assets/js/main.js"></script>
