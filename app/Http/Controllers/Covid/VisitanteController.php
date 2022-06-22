@@ -14,7 +14,12 @@ class VisitanteController extends Controller
      */
     public function index()
     {
-        //
+         return view('covid.visitante.index');
+    }
+    
+    public function getPersonal()
+    {
+        return Personal::get();
     }
 
     /**

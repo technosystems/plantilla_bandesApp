@@ -84,7 +84,7 @@
       
         </li>
          <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
-          <a href="/permisos" class="menu-link">
+          <a href="/visitante" class="menu-link">
             <div data-i18n="Visitantes">Visitantes</div>
           </a>
         </li>
