@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Personal')
 @section('content')
+
  <div class="page-content">
   <div class="container-fluid">
     <div class="row g-4 mb-4">
@@ -30,10 +31,10 @@
                 <div class="content-left">
                   <span>Pruebas en Existencia</span>
                   <div class="d-flex align-items-end mt-2">
-                    <h4 class="mb-0 me-2">{{ App\Models\Existencia::obtenerExistencia() }}</h4>
+                    <h4 class="mb-0 me-2">{{ $list_existencia[0]['existencia'] }}</h4>
                     {{-- <small class="text-success">(+18%)</small> --}}
                   </div>
-                  <small>Total general de usuarios</small>
+                  <small>Total</small>
                 </div>
                 <span class="badge bg-label-danger rounded p-2">
                   <i class="bx bx-user-plus bx-sm"></i>
@@ -47,11 +48,7 @@
        <div class="row">
           <div class="col-sm-12 col-xl-12">
             <div class="card">
-              
               <div class="card-body">
-                
-                <a class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser" aria-controls="offcanvasAddUser"><span class="text-white">Nuevo usuario</span></a>
-             
                 <div class="card-datatable table-responsive">
                   <table class="datatables-users table border-top table-sm" id="tablaModulos">
                     <thead>
@@ -71,8 +68,8 @@
           </div>
        </div>
     </div>
-    @include('admin.user.partials.modal.create')
-    @include('admin.user.partials.modal.edit')
+    @include('covid.personal.modal.prueba')
+    @include('covid.personal.modal.consulta')
   </div>
 
 
@@ -134,27 +131,19 @@
         {"data": "id_gerencia"},
         
         
-        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnEditar'><i class='mdi mdi-pencil'></i></button><button class='btn btn-danger btn-sm btn-circle btnBorrar'><i class='mdi mdi-delete'></i></button></div>"}
+        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='mdi mdi-clipboard-check'></i></button><button class='btn btn-success  btn-sm btn-circle btnBorrar'><i class='mdi mdi-account-search'></i></button></div>"}
     ]
 });
     var fila; //captura la fila, para editar o eliminar
 //Editar        
-$(document).on("click", ".btnEditar", function(){           
+$(document).on("click", ".btnPrb", function(){           
+
     opcion = 2;//editar
-    fila = $(this).closest("tr");   
-    user_id  = parseInt(fila.find('td:eq(0)').text()); //capturo el ID               
-    nombre   = fila.find('td:eq(1)').text();
-    apellido = fila.find('td:eq(2)').text();
-    usuario  = fila.find('td:eq(3)').text();
-    emailInput  = fila.find('td:eq(4)').text();
-    //status = parseInt(fila.find('td:eq(4)').text());
-    console.log(status);
-    $("#nombreusuario").val(nombre);
-    $("#apellido").val(apellido);
-    $("#usuario").val(usuario);
-    $("#emailInput").val(emailInput);
-    $(".modal-title").text("Edición de Usuarios");   
-    $('#ModulosEdit').modal('show');       
+    
+    //console.log(status);
+    
+    $(".modal-title").text("Resultado de la Prueba");   
+    $('#Modal1').modal('show');       
 });
 var fila; //captura la fila, para editar o eliminar
 //submit para el Alta y Actualización

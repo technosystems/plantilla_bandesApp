@@ -28,4 +28,9 @@ class Personal extends Model
 	{
 	    return Personal::find($id);
 	}
+
+	public function getgerencia()
+    {
+        return $this->hasOne(Gerencia::class, 'id_gerencia', 'id_gerencia');
+	}
 }

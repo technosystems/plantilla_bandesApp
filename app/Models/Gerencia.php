@@ -15,17 +15,16 @@ class Gerencia extends Model
 
     protected $primaryKey = 'id_gerencia';
 
-    protected $fillable = ['id_gerencia' ,'name', 'ente', 'status'];
+    protected $fillable = ['id_gerencia' ,'descripcion', 'organizacion', 'id_estatus'];
 
 	protected $hidden = ['created_at', 'updated_at'];
 
-	public function obtenerGerencia()
-	{
-	    return Gerencia::orderBy('id_inventario', 'DESC')->get();
-	}
+
 
 	public function obtenerGerenciaId($id)
 	{
 	    return Gerencia::find($id);
 	}
+
+	
 }
