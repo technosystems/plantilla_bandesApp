@@ -15,15 +15,13 @@
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
-                          <p class="mb-4">You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in your profile.</p>
-
-                          <a href="javascript:;" class="btn btn-sm btn-label-primary">View Badges</a>
+                          <h5 class="card-title text-primary">Sistema para la Recepción y Control de Pruebas Covid</h5>
+                          <p class="mb-4">Sistema <span class="fw-bold">BANDES</span> para la Recepción, Inventario y Control de Pruebas Covid para el Personal y Visitantes.</p>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
                         <div class="card-body pb-0 px-0 px-md-4">
-                          <img src="../../assets/img/illustrations/man-with-laptop-light.png" height="140" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.html">
+                          <img src="../../assets/img/illustrations/logo_home2.png" height="140" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.html">
                         </div>
                       </div>
                     </div>
@@ -37,12 +35,12 @@
                         <div class="d-flex align-items-end row">
                           <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
                             <div class="card-title">
-                              <h5 class="text-nowrap mb-3">Reportes</h5>
-                              <span class="badge bg-label-warning rounded-pill">Year 2021</span>
+                              <h5 class="text-nowrap mb-3">Existencia</h5>
+                             
                             </div>
                             <div class="mt-sm-auto">
                               <small class="text-success text-nowrap fw-semibold"><i class='bx bx-chevron-up'></i> 68.2%</small>
-                              <h3 class="mb-0">$84,686k</h3>
+                              <h3 class="mb-0">23</h3>
                             </div>
                           </div>
                           <div id="profileReportChart"></div>
