@@ -6,11 +6,11 @@
     <div class="container-fluid">
 
   <div class="row">
-   
+
       <div class="col-lg-12">
             <div class="card card-line-primary">
                 <div class="card-header">
-                  <p>Inventario de Pruebas Covid</p>
+                  <p>Inventario de Pruebas Covid!!!!!!!!!!!!!!!!!!!</p>
                 </div>
 
                   <div class="card-body">
@@ -20,7 +20,7 @@
                           <button class="dt-button add-new btn btn-primary mb-md-0" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#addPermissionModal"><span>Agregar Pruebas</span>
                           </button>
                         </div>
-                        
+
                         <div class="col-9" style="margin-top: -20px;border-left-style: solid;border-left-width: 20px;">
                           <div class="avatar avatar-xl">
                             <span class="avatar-initial rounded-circle bg-info">{{ $list_existencia[0]['existencia'] }}</span>
@@ -50,7 +50,7 @@
                               <td>{{ $row->observacion }}</td>
                               <td>
                                <div class="btn-group">
-                                
+
                                 @can('Eliminar Permisos')
                                   <form action="{{ route('inventario.destroy', $row->id_inventario) }}" method="POST"
                                   style="display: inline-block;" onsubmit="return confirm('¿Desea eliminar?')">
@@ -63,10 +63,10 @@
                                 </form>
                                @endcan
                                </div>
-                                 
+
                               </td>
                               </tr>
-                    
+
                               @endforeach
                         </tbody>
                       </table>
@@ -76,7 +76,7 @@
               </div>
           </div>
         </div>
-       
+
       </div>
       <!-- Add Permission Modal -->
       <div class="modal fade" id="addPermissionModal" tabindex="-1" aria-hidden="true">
@@ -103,7 +103,7 @@
                   <label class="form-label" for="modalPermissionName">Observación</label>
                   <input type="text" name="observacion" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese la Cantidad total de Puebas." autofocus required />
                 </div>
-               
+
                 <div class="col-12 text-center demo-vertical-spacing">
                   <button type="submit" class="btn btn-primary me-sm-3 me-1">Guardar</button>
                   <button type="reset" class="btn btn-label-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
@@ -119,9 +119,9 @@
 @push('scripts')
 <script>
   $('#tableExport').DataTable({
-   
-    
-    
+
+
+
      language: {
         "decimal": "",
         "emptyTable": "No hay información",
@@ -153,6 +153,6 @@
             'copy', 'csv', 'excel', 'pdf', 'print','colvis'
         ]
   });
-  
+
 </script>
 @endpush
