@@ -16,11 +16,12 @@ class VisitanteController extends Controller
     {
          return view('covid.visitante.index');
     }
-    
-    public function getPersonal()
+
+    public function getVisitante()
     {
-        return Personal::get();
+        return Visitante::get();
     }
+
 
     /**
      * Show the form for creating a new resource.
