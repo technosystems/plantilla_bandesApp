@@ -164,7 +164,7 @@ $('#main-form').submit(function(e){
     e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
     name = $.trim($('#nombreusuario').val());
     last_name = $.trim($('#apellido').val());
-    status = $.trim($('#status').val());
+   // status = $.trim($('#status').val());
     username = $.trim($('#usuario').val());
     codigo = $.trim($('#txtCodigo').val());
     var data = $('#main-form').serialize();
