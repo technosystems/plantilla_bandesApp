@@ -21,12 +21,12 @@ class Visitante extends Model
 
 	public function obtenerVisitante()
 	{
-	  return Visitante::orderBy('id_inventario', 'DESC')->get();
+	  return Personal::orderBy('id_inventario', 'DESC')->get();
 	}
 
 	public function obtenerPersonalId($id)
 	{
-	    return Visitante::find($id);
+	    return Personal::find($id);
 	}
 
 	public function getgerencia()
