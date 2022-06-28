@@ -131,11 +131,11 @@
         {"data": "id_gerencia"},
         
         
-        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='mdi mdi-clipboard-check'></i></button><button class='btn btn-success  btn-sm btn-circle btnBorrar'><i class='mdi mdi-account-search'></i></button></div>"}
+        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='mdi mdi-clipboard-check'></i></button><button class='btn btn-success  btn-sm btn-circle btnCsta'><i class='mdi mdi-account-search'></i></button></div>"}
     ]
 });
     var fila; //captura la fila, para editar o eliminar
-//Editar        
+//levanta la modal para colocar el resultado de la prueba        
 $(document).on("click", ".btnPrb", function(){           
 
     opcion = 2;//editar
@@ -145,7 +145,7 @@ $(document).on("click", ".btnPrb", function(){
     $(".modal-title").text("Resultado de la Prueba");   
     $('#Modal1').modal('show');       
 });
-var fila; //captura la fila, para editar o eliminar
+
 //submit para el Alta y Actualización
 $('#main-form').submit(function(e){                        
     e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
@@ -190,6 +190,63 @@ $('#main-form').submit(function(e){
         }
      });        
     $('#ModulosEdit').modal('hide');                                
+});
+
+  //levanta la modal de consulta para ver recor de pruebas covid del personal        
+  $(document).on("click", ".btnCsta", function(){           
+
+      opcion = 2;//editar
+      
+      $(".modal-title").text("Historial de Pruebas Covid del Personal");   
+      $('#ModalConsulta').modal('show');       
+  });
+
+  // tabla para los datos del historial del personal solicitado
+
+      tablaConsulta =  $('#tablaConsulta').DataTable({ 
+       language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+            },
+        "oAria": {
+          "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        }
+        },
+        dom: 'Bfrtip',
+         responsive:false,
+         lengthChange: true,
+         buttons: [
+            'excel', 'pdf', 'print','colvis'
+        ],
+    "ajax":{            
+        "url": "{{ url('personals') }}", 
+        "method": 'GET', //usamos el metodo POST
+        "dataSrc":""
+    },
+    "columns":[
+        {"data": "id_personal"},
+        {"data": "cedula"},
+        {"data": "tx_nombres"},
+        {"data": "tx_apellidos"},
+  
+        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='mdi mdi-clipboard-check'></i></button></div>"}
+    ]
 });
 </script>
   <script>
@@ -251,65 +308,5 @@ $('#main-form').submit(function(e){
        }
     });
   </script>
-  <script>
-   $(document).on("click", ".btnBorrar", function(e){
-    e.preventDefault();
-    fila = $(this);           
-    user_id = parseInt($(this).closest('tr').find('td:eq(0)').text()) ;   
-    opcion = 3; //eliminar        
-    Swal.fire({
-        title: '¿Estás seguro(a)?',
-        text: "¡Si confirmas no habrá marcha atrás!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: '¡Eliminar!',
-        customClass: {
-          confirmButton: 'btn btn-primary',
-          cancelButton: 'btn btn-outline-danger ms-1'
-        },
-        buttonsStyling: false
-      }).then(function (result) {
-        if (result.value) {
-        $.ajax({
-          url: "/users/"+user_id+'/delete' ,
-          type: "GET",
-          datatype:"json",    
-          
-          success: function() {
-              tablaModulos.row(fila.parents('tr')).remove().draw();  
-               var timerInterval;
-                  Swal.fire({
-                    title: '¡Datos eliminados!',
-                    icon: 'success',
-                    timer: 1000,
-                    timerProgressBar: false,
-                    didOpen: () => {
-                      Swal.showLoading();
-                      timerInterval = setInterval(() => {
-                        const content = Swal.getHtmlContainer();
-                        if (content) {
-                          const b = content.querySelector('b');
-                          if (b) {
-                            b.textContent = Swal.getTimerLeft();
-                          }
-                        }
-                      }, 100);
-                    },
-                    willClose: () => {
-                      clearInterval(timerInterval);
-                    }
-                  }).then(result => {
-                    /* Read more about handling dismissals below */
-                    if (result.dismiss === Swal.DismissReason.timer) {
-                      console.log('I was closed by the timer');
-                    }
-                  });         
-           }
-        }); 
-         
-        }
-      });        
-    
- });
-  </script>
+
 @endpush
