@@ -16,6 +16,7 @@
                   </div>
                   <small>Total Visitantes</small>
                 </div>
+
                 <span class="badge bg-label-primary rounded p-2">
                   <i class="bx bx-user bx-sm"></i>
                 </span>
@@ -30,7 +31,8 @@
                 <div class="content-left">
                   <span>Pruebas en Existencia</span>
                   <div class="d-flex align-items-end mt-2">
-                    <h4 class="mb-0 me-2">{{ App\Models\Existencia::obtenerExistencia() }}</h4>
+                      <h4 class="mb-0 me-2">{{ $list_existencia[0]['existencia'] }}</h4>
+                    {{-- <h4 class="mb-0 me-2">{{ App\Models\Existencia::obtenerExistencia() }}</h4>--}}
                     {{-- <small class="text-success">(+18%)</small> --}}
                   </div>
                   <small>Total general de usuarios</small>
@@ -62,7 +64,9 @@
                         <th>Apellidos</th>
                         <th>Gerencia</th>
                          <th>Estatus</th>
-                        <th></th>
+
+
+                        <th>Acciones</th>
                       </tr>
                     </thead>
                   </table>
@@ -72,8 +76,8 @@
           </div>
        </div>
     </div>
-    @include('admin.user.partials.modal.create')
-    @include('admin.user.partials.modal.edit')
+   @include('covid.visitante.modal.prueba')
+    @include('covid.visitante.modal.consulta')
   </div>
 
 
@@ -133,38 +137,26 @@
         {"data": "tx_nombres"},
         {"data": "tx_apellidos"},
         {"data": "id_gerencia"},
-        {"data": "id_estatus"},.
+        {"data": "id_estatus"},
 
-
-        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnEditar'><i class='mdi mdi-pencil'></i></button><button class='btn btn-danger btn-sm btn-circle btnBorrar'><i class='mdi mdi-delete'></i></button></div>"}
+        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnEditar'><i class='bx bx-detail'></i></button><button class='btn btn-success btn-sm btn-circle btnBorrar'><i class='bx bx-link-alt'></i></button></div>"}
     ]
 });
     var fila; //captura la fila, para editar o eliminar
-//Editar
+
+/************** levanta la modal para registrar los datos del resultado de la prueba covid ********/
 $(document).on("click", ".btnEditar", function(){
     opcion = 2;//editar
-    fila = $(this).closest("tr");
-    user_id  = parseInt(fila.find('td:eq(0)').text()); //capturo el ID
-    nombre   = fila.find('td:eq(1)').text();
-    apellido = fila.find('td:eq(2)').text();
-    usuario  = fila.find('td:eq(3)').text();
-    emailInput  = fila.find('td:eq(4)').text();
-    //status = parseInt(fila.find('td:eq(4)').text());
-    console.log(status);
-    $("#nombreusuario").val(nombre);
-    $("#apellido").val(apellido);
-    $("#usuario").val(usuario);
-    $("#emailInput").val(emailInput);
-    $(".modal-title").text("Edición de Usuarios");
-    $('#ModulosEdit').modal('show');
+    $(".modal-title").text("Resultado de la Prueba");
+    $('#Modal1').modal('show');
+
 });
-var fila; //captura la fila, para editar o eliminar
 //submit para el Alta y Actualización
 $('#main-form').submit(function(e){
     e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
     name = $.trim($('#nombreusuario').val());
     last_name = $.trim($('#apellido').val());
-   // status = $.trim($('#status').val());
+    status = $.trim($('#status').val());
     username = $.trim($('#usuario').val());
     codigo = $.trim($('#txtCodigo').val());
     var data = $('#main-form').serialize();
@@ -204,6 +196,15 @@ $('#main-form').submit(function(e){
      });
     $('#ModulosEdit').modal('hide');
 });
+
+ /******** levanta la modal de consulta para ver historial de pruebas covid del visitante   *****/
+  $(document).on("click", ".btnCsta", function(){
+
+      opcion = 2;//editar
+
+      $(".modal-title").text("Historial de Pruebas Covid del Visitante");
+      $('#ModalConsulta').modal('show');
+  });
 </script>
   <script>
 

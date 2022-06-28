@@ -8,6 +8,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\Visitante;
 use App\Models\Existencia;
+use App\Models\Personal;
 
 class VisitanteController extends Controller
 {
@@ -19,12 +20,14 @@ class VisitanteController extends Controller
     public function index()
     {
            $list_existencia = Existencia::get();
-           return view('covid.visitante.index');
+          return view('covid.visitante.index',
+              compact('list_existencia'));
     }
 
     public function getVisitante()
     {
-          $data = Visitante::get();
+         $data =Personal::where('id_estatus', '=', 4) // id_estatus 4 = visitante
+                ->get();
         //dd($data);
         return $data;
     }
