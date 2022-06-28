@@ -69,7 +69,6 @@
        </div>
     </div>
     @include('covid.personal.modal.prueba')
-    @include('covid.personal.modal.consulta')
   </div>
 
 
@@ -131,7 +130,7 @@
         {"data": "id_gerencia"},
         
         
-        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='mdi mdi-clipboard-check'></i></button><button class='btn btn-success  btn-sm btn-circle btnCsta'><i class='mdi mdi-account-search'></i></button></div>"}
+        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='mdi mdi-clipboard-check' data-toggle='tooltip' data-placement='top' title='Cargar Resultado'></i></button><button class='btn btn-success  btn-sm btn-circle btnCsta'><i class='mdi mdi-account-search' data-toggle='tooltip' data-placement='top' title='Historico de Pruebas'></i></button></div>"}
     ]
 });
     var fila; //captura la fila, para editar o eliminar
@@ -142,9 +141,18 @@ $(document).on("click", ".btnPrb", function(){
     
     //console.log(status);
     
-    $(".modal-title").text("Resultado de la Prueba");   
+    $(".modal-title").text("Ingresar Resultado de la Prueba");   
     $('#Modal1').modal('show');       
 });
+
+ //levanta la modal de consulta para ver recor de pruebas covid del personal        
+  $(document).on("click", ".btnCsta", function(){           
+
+      opcion = 2;
+      var id_personal = 1;
+      window.location="consulta";
+            
+  });
 
 //submit para el Alta y Actualización
 $('#main-form').submit(function(e){                        
@@ -192,62 +200,7 @@ $('#main-form').submit(function(e){
     $('#ModulosEdit').modal('hide');                                
 });
 
-  //levanta la modal de consulta para ver recor de pruebas covid del personal        
-  $(document).on("click", ".btnCsta", function(){           
-
-      opcion = 2;//editar
-      
-      $(".modal-title").text("Historial de Pruebas Covid del Personal");   
-      $('#ModalConsulta').modal('show');       
-  });
-
-  // tabla para los datos del historial del personal solicitado
-
-      tablaConsulta =  $('#tablaConsulta').DataTable({ 
-       language: {
-        "decimal": "",
-        "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-        "infoPostFix": "",
-        "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Entradas",
-        "loadingRecords": "Cargando...",
-        "processing": "Procesando...",
-        "search": "Buscar:",
-        "zeroRecords": "Sin resultados encontrados",
-        "paginate": {
-            "first": "Primero",
-            "last": "Ultimo",
-            "next": "Siguiente",
-            "previous": "Anterior"
-            },
-        "oAria": {
-          "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-        }
-        },
-        dom: 'Bfrtip',
-         responsive:false,
-         lengthChange: true,
-         buttons: [
-            'excel', 'pdf', 'print','colvis'
-        ],
-    "ajax":{            
-        "url": "{{ url('personals') }}", 
-        "method": 'GET', //usamos el metodo POST
-        "dataSrc":""
-    },
-    "columns":[
-        {"data": "id_personal"},
-        {"data": "cedula"},
-        {"data": "tx_nombres"},
-        {"data": "tx_apellidos"},
-  
-        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='mdi mdi-clipboard-check'></i></button></div>"}
-    ]
-});
+ 
 </script>
   <script>
 

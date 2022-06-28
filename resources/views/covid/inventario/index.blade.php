@@ -10,7 +10,7 @@
       <div class="col-lg-12">
             <div class="card card-line-primary">
                 <div class="card-header">
-                  <p>Inventario de Pruebas Covid!!!!!!!!!!!!!!!!!!!</p>
+                  <p>Inventario de Pruebas Covid</p>
                 </div>
 
                   <div class="card-body">

@@ -36,7 +36,7 @@
                         <div class="col-xxl-12">
                             <div class="mb-3">
                               <label for="defaultInput" class="form-label">Observaciones</label>
-                              <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                              <input id="defaultInput" class="form-control" type="text" placeholder="Observaciones" />
                             </div>
                         </div><!--end col-->
                         <div class="col-lg-12">
