@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Covid;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\Models\Visitante;
+use App\Models\Existencia;
 
 class VisitanteController extends Controller
 {
@@ -14,12 +18,15 @@ class VisitanteController extends Controller
      */
     public function index()
     {
-         return view('covid.visitante.index');
+           $list_existencia = Existencia::get();
+           return view('covid.visitante.index');
     }
 
     public function getVisitante()
     {
-        return Visitante::get();
+          $data = Visitante::get();
+        //dd($data);
+        return $data;
     }
 
 

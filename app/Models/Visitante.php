@@ -21,7 +21,7 @@ class Visitante extends Model
 
 	public function obtenerVisitante()
 	{
-	    return Visitante::where('id_estatus', '4')->get();
+	  return Visitante::orderBy('id_inventario', 'DESC')->get();
 	}
 
 	public function obtenerPersonalId($id)
