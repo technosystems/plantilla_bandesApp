@@ -33,7 +33,8 @@ Route::middleware(['auth',])->group(function () {
   Route::resource('visitante', 'Covid\VisitanteController');
   Route::resource('inventario', 'Covid\InventarioController');
   Route::get('personals', 'Covid\PersonalController@getPersonal');
-  
+  Route::get('visitantes', 'Covid\VisitanteController@getVisitante');
+
   //Route::resource('personal', Covid\PersonalController::class);
 
 });
