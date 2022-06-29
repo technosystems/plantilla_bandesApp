@@ -145,12 +145,18 @@ $(document).on("click", ".btnPrb", function(){
     $('#Modal1').modal('show');       
 });
 
- //levanta la modal de consulta para ver recor de pruebas covid del personal        
+ //va a la ruta para la condulta del recor y manda id       
   $(document).on("click", ".btnCsta", function(){           
 
-      opcion = 2;
-      var id_personal = 1;
-      window.location="consulta";
+      fila = $(this).closest("tr");
+
+      id  = parseInt(fila.find('td:eq(0)').text()); //capturo el ID 
+
+      id = btoa(id); // Base64 encode the String 
+
+     var opcion = 2;
+
+      window.location="consulta?id="+id;
             
   });
 

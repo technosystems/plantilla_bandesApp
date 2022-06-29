@@ -25,7 +25,17 @@
                           <tr class="row{{ $row->id }}">
                           <td>{{ $row->id }}</td>
                           <td>{{ $row->desde }}</td>
-                          <td>{{ $row->resultado }}</td>
+                          @php
+                            if($row->resultado == 1)
+                            {
+                              $resultado = "Negativo";
+                            }
+                            else{
+                            $resultado = "Positivo";
+                          }
+
+                          @endphp
+                          <td>{{ $resultado }}</td>
                           <td>{{ $row->observacion }}</td>
                           <td>
                            <div class="btn-group">
@@ -47,6 +57,11 @@
                         </tbody>
                   </table>
                 </div>
+                  <div class="col-12">
+                    <button type="button" class="btn btn-secondary btnVolver">
+                     <i class='bx bx-left-arrow-alt'></i>&nbsp; Volver
+                    </button>
+                  </div>
               </div>
             </div>
           </div>
@@ -100,6 +115,13 @@
             'copy', 'csv', 'excel', 'pdf', 'print','colvis'
         ]
   });
+
+    $(document).on("click", ".btnVolver", function(){           
+
+        window.location="personal";
+              
+    });
+
   </script>
 
 @endpush

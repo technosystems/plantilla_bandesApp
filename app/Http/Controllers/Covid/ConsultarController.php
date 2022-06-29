@@ -14,11 +14,11 @@ class ConsultarController extends Controller
 {
     //
 
-    public function index()
+    public function index(Request $request)
     {
-         //$id_personal = $request->id_personal; 
-    	//dd($id_personal);
-    	$id_personal = 1;
+         $id_personal = $request->id;
+         $id_personal = base64_decode($id_personal); 
+
     	//$data = Movimientos::get(); 
         $datos = Movimientos::where('id_personal', $id_personal)->get(); 
 
