@@ -35,7 +35,8 @@ Route::middleware(['auth',])->group(function () {
   Route::get('personals', 'Covid\PersonalController@getPersonal');
   Route::get('visitantes', 'Covid\VisitanteController@getVisitante');
   Route::get('consmov', 'Covid\ConsultarController@getMovimiento');
-  Route::get('consulta', 'Covid\ConsultarController@index'); 
+  Route::get('consulta', 'Covid\ConsultarController@index');
+  Route::resource('movimientos', 'Covid\MovimientosController');
 
   //Route::resource('personal', Covid\PersonalController::class);
 

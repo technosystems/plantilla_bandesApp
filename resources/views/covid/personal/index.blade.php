@@ -137,11 +137,14 @@
 //levanta la modal para colocar el resultado de la prueba        
 $(document).on("click", ".btnPrb", function(){           
 
-    opcion = 2;//editar
+    fila2 = $(this).closest("tr");
+
+    id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID 
+
+    $('#id_personal').val(id);
     
-    //console.log(status);
-    
-    $(".modal-title").text("Ingresar Resultado de la Prueba");   
+    $(".modal-title").text("Ingresar Resultado de la Prueba"); 
+
     $('#Modal1').modal('show');       
 });
 
@@ -154,44 +157,32 @@ $(document).on("click", ".btnPrb", function(){
 
       id = btoa(id); // Base64 encode the String 
 
-     var opcion = 2;
+      var opcion = 2;
 
       window.location="consulta?id="+id;
             
   });
 
 //submit para el Alta y Actualización
-$('#main-form').submit(function(e){                        
+$('#form_prueba').submit(function(e){                        
     e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
-    name = $.trim($('#nombreusuario').val());    
-    last_name = $.trim($('#apellido').val());
-    status = $.trim($('#status').val());
-    username = $.trim($('#usuario').val());
-    codigo = $.trim($('#txtCodigo').val());  
-    var data = $('#main-form').serialize();        
+   
+   /* fecha = $.trim($('#flatpickr-range').val());    
+    resultado = $.trim($('#apellido').val());
+    observacion = $.trim($('#status').val());
+    id_personal = $.trim($('#id_personal').val());*/
+   
+    var data = $('#form_prueba').serialize();        
     $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');             
     $.ajax({
-         url: "/user/" + user_id,
-          headers: {'X-CSRF-TOKEN': $('#main-form #_token').val()},
-          type: "PUT",
-          datatype:"json",  
+          //url: "/user/" + user_id,
+          url: "movimientos",
+          headers: {'X-CSRF-TOKEN': $('#form_prueba #_token').val()},
+          type: "POST", 
           cache: false,  
           data:  data, 
         success: function (response) {
-          var json = $.parseJSON(response);
-          if(json.success){
-            $('#main-form #edit-button').removeClass('hide');
-
-            tablaModulos.ajax.reload(null, false);
-            Swal.fire({
-              title:'¡Bien hecho!',
-              text:'Datos ingresados',
-              icon:"success",
-              customClass:{confirmButton:"btn btn-primary"},
-              buttonsStyling:!1
-
-            })
-          }
+          console.log(response);
         },error: function (data) {
           var errors = data.responseJSON;
           $.each( errors.errors, function( key, value ) {
@@ -203,7 +194,7 @@ $('#main-form').submit(function(e){
           $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
         }
      });        
-    $('#ModulosEdit').modal('hide');                                
+    $('#Modal1').modal('hide');                                
 });
 
  

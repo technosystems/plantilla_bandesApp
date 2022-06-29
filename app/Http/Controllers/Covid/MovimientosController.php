@@ -8,8 +8,9 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\Personal;
 use App\Models\Existencia;
+use App\Models\Movimientos;
 
-class PersonalController extends Controller
+class MovimientosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,18 +19,7 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        
-        $list_existencia = Existencia::get();
-
-        return view('covid.personal.index',compact('list_existencia'));
-    }
-
-    public function getPersonal()
-    {
-        
-        $data = Personal::get(); 
-        //dd($data);
-        return $data;
+        //
     }
 
     /**
@@ -50,7 +40,17 @@ class PersonalController extends Controller
      */
     public function store(Request $request)
     {
-       
+         //dd("aaa");
+         $data = array();
+         $data['id_tipo_prueba'] = 1;
+         $data['desde']          = substr($request->flatpickr_range, 0,10);
+         $data['hasta']          = substr($request->flatpickr_range, -10);
+         $data['resultado']      = $request->default_radio_1;
+         $data['id_personal']    = $request->id_personal;
+         $data['observacion']    = $request->observaciones;
+        
+         
+        $guardar = Movimientos::create($data);
     }
 
     /**
