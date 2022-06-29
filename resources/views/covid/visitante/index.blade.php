@@ -78,7 +78,7 @@
        </div>
     </div>
     @include('covid.visitante.modal.prueba')
-    @include('covid.visitante.modal.consulta')
+    
   </div>
 @endsection
 
@@ -139,13 +139,13 @@
           {"data": "id_gerencia"},
           {"data": "id_estatus"},
 
-          {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnEditar'><i class='bx bx-detail'></i></button><button class='btn btn-success btn-sm btn-circle btnCsta'><i class='bx bx-link-alt'></i></button></div>"}
+          {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='bx bx-detail' data-toggle='tooltip' data-placement='top' title='Registrar Resultado'></i></button><button class='btn btn-success btn-sm btn-circle btnCsta'><i class='bx bx-link-alt'  data-toggle='tooltip' data-placement='top' title='Histórico de pruebas'></i></button></div>"}
           ]
       });
       var fila; //captura la fila, para editar o eliminar
 
       /************** levanta la modal para registrar los datos del resultado de la prueba covid ********/
-      $(document).on("click", ".btnEditar", function(){
+      $(document).on("click", ".btnPrb", function(){
         opcion = 2;//editar
         $(".modal-title").text("Resultado de la Prueba");
         $('#Modal1').modal('show');
@@ -197,13 +197,19 @@
         $('#ModulosEdit').modal('hide');
       });*/
 
-      /******** levanta la modal de consulta para ver historial de pruebas covid del visitante   *****/
-      $(document).on("click", ".btnCsta", function(){
+      /******** levanta la modal de consulta para ver historial de pruebas covid del visitante *****/
+      $(document).on("click", ".btnCsta", function(){           
 
-          opcion = 2;//editar
+        fila = $(this).closest("tr");
 
-          $(".modal-title").text("Historial de Pruebas Covid del Visitante");
-          $('#ModalConsulta').modal('show');
+        id  = parseInt(fila.find('td:eq(0)').text()); //capturo el ID 
+
+        id = btoa(id); // Base64 encode the String 
+
+        var opcion = 2;
+
+        window.location="consulta?id="+id;
+
       });
   </script>
 
