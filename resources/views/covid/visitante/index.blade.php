@@ -53,7 +53,13 @@
 
               <div class="card-body">
 
-                <a class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser" aria-controls="offcanvasAddUser"><span class="text-white">Nuevo usuario</span></a>
+                 <!-- Nuevo Visitante 
+                <a class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser" aria-controls="offcanvasAddUser"><span class="text-white">Nuevo Visitante</span></a> -->
+                
+                <a class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser" aria-controls="offcanvasAddUser"><span class="text-white">Nuevo Visitante</span></a>
+
+
+                 <!-- Fin Nuevo Visitante -->
 
                 <div class="card-datatable table-responsive">
                   <table class="datatables-users table border-top table-sm" id="tablaModulos">
@@ -144,45 +150,55 @@
       });
       var fila; //captura la fila, para editar o eliminar
 
-      /************** levanta la modal para registrar los datos del resultado de la prueba covid ********/
-      $(document).on("click", ".btnPrb", function(){
-        opcion = 2;//editar
-        $(".modal-title").text("Resultado de la Prueba");
-        $('#Modal1').modal('show');
+
+      /************** levanta la modal para registrar un NUEVO VISITANTE ********/
+      $(document).on("click", ".btnNewVisistante", function(){           
+
+        fila2 = $(this).closest("tr");
+
+        id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID 
+
+        $('#id_personal').val(id);
+
+        $(".modal-title").text("Ingresar Resultado de la Prueba"); 
+
+        $('#Modal1').modal('show');   
 
       });
+
+      /************** levanta la modal para registrar los datos del resultado de la prueba covid ********/
+      $(document).on("click", ".btnPrb", function(){           
+
+        fila2 = $(this).closest("tr");
+
+        id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID 
+
+        $('#id_personal').val(id);
+
+        $(".modal-title").text("Ingresar Resultado de la Prueba"); 
+
+        $('#Modal1').modal('show');   
+
+      });
+
+
       //submit para el Alta y Actualización
-     /* $('#main-form').submit(function(e){
+      $('#form_prueba').submit(function(e){
         e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
-        name = $.trim($('#nombreusuario').val());
-        last_name = $.trim($('#apellido').val());
-        status = $.trim($('#status').val());
-        username = $.trim($('#usuario').val());
-        codigo = $.trim($('#txtCodigo').val());
-        var data = $('#main-form').serialize();
+
+    
+        var data = $('#form_prueba').serialize();
         $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');
         $.ajax({
-             url: "/user/" + user_id,
-              headers: {'X-CSRF-TOKEN': $('#main-form #_token').val()},
-              type: "PUT",
-              datatype:"json",
+             //url: "/user/" + user_id,
+              url: "movimientos",
+              headers: {'X-CSRF-TOKEN': $('#form_prueba #_token').val()},
+              type: "POST",
+             // datatype:"json",
               cache: false,
               data:  data,
             success: function (response) {
-              var json = $.parseJSON(response);
-              if(json.success){
-                $('#main-form #edit-button').removeClass('hide');
-
-                tablaModulos.ajax.reload(null, false);
-                Swal.fire({
-                  title:'¡Bien hecho!',
-                  text:'Datos ingresados',
-                  icon:"success",
-                  customClass:{confirmButton:"btn btn-primary"},
-                  buttonsStyling:!1
-
-                })
-              }
+              console.log(response);
             },error: function (data) {
               var errors = data.responseJSON;
               $.each( errors.errors, function( key, value ) {
@@ -194,8 +210,8 @@
               $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
             }
          });
-        $('#ModulosEdit').modal('hide');
-      });*/
+        $('#Modal1').modal('hide');
+      });
 
       /******** levanta la modal de consulta para ver historial de pruebas covid del visitante *****/
       $(document).on("click", ".btnCsta", function(){           
@@ -274,7 +290,7 @@
   </script>
 
   <script>
-    $(document).on("click", ".btnBorrar", function(e){
+   /* $(document).on("click", ".btnBorrar", function(e){
       e.preventDefault();
       fila = $(this);
       user_id = parseInt($(this).closest('tr').find('td:eq(0)').text()) ;
@@ -321,7 +337,7 @@
                         clearInterval(timerInterval);
                       }
                     }).then(result => {
-                      /* Read more about handling dismissals below */
+                      /// Read more about handling dismissals below
                       if (result.dismiss === Swal.DismissReason.timer) {
                         console.log('I was closed by the timer');
                       }
@@ -331,6 +347,6 @@
 
           }
         });
-    });
+    });*/
   </script>
 @endpush
