@@ -51,6 +51,10 @@ class MovimientosController extends Controller
         
          
         $guardar = Movimientos::create($data);
+
+        return json_encode(['user_id' => $guardar->id_personal]);
+
+
     }
 
     /**

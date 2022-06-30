@@ -24,7 +24,7 @@
                       @foreach ($datos as $row)
                           <tr class="row{{ $row->id }}">
                           <td>{{ $row->id }}</td>
-                          <td>{{ $row->desde }}</td>
+                          <td>{{ $row->desde. " / " .$row->hasta }}</td>
                           @php
                             if($row->resultado == 1)
                             {
@@ -84,6 +84,8 @@
   <script>
    $('#tablaModulos').DataTable({
 
+    "order": [[ 0,"desc" ]],
+
      language: {
         "decimal": "",
         "emptyTable": "No hay información",
@@ -111,6 +113,7 @@
         dom: 'Bfrtip',
          responsive:true,
          lengthChange: true,
+
          buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print','colvis'
         ]

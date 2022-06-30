@@ -163,9 +163,9 @@ $(document).on("click", ".btnPrb", function(){
             
   });
 
-//submit para el Alta y Actualización
+//submit para insertar de la modal
 $('#form_prueba').submit(function(e){                        
-    e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
+    e.preventDefault(); 
    
    /* fecha = $.trim($('#flatpickr-range').val());    
     resultado = $.trim($('#apellido').val());
@@ -182,7 +182,22 @@ $('#form_prueba').submit(function(e){
           cache: false,  
           data:  data, 
         success: function (response) {
-          console.log(response);
+
+          var json = $.parseJSON(response);
+          console.log(json.user_id);
+          var id = btoa(json.user_id);
+
+          Swal.fire({
+                      title:'¡Datos Insertados!',
+                      text:'Datos Ingresados con Exito',
+                      icon:"success",
+                      customClass:{confirmButton:"btn btn-primary"},
+                      buttonsStyling:!1
+                    })
+
+          $('#Modal1').modal('hide');
+          window.location="consulta?id="+id;
+
         },error: function (data) {
           var errors = data.responseJSON;
           $.each( errors.errors, function( key, value ) {
@@ -194,7 +209,7 @@ $('#form_prueba').submit(function(e){
           $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
         }
      });        
-    $('#Modal1').modal('hide');                                
+                                   
 });
 
  

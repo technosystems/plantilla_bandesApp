@@ -20,8 +20,10 @@ class ConsultarController extends Controller
          $id_personal = base64_decode($id_personal); 
 
     	//$data = Movimientos::get(); 
-        $datos = Movimientos::where('id_personal', $id_personal)->get(); 
-
+        $datos = Movimientos::where('id_personal', $id_personal)
+                             ->orderBy('id','DESC')
+                             ->get(); 
+                          
         return view('covid.consulta.index',compact('datos'));
     }
 
