@@ -52,6 +52,23 @@ class MovimientosController extends Controller
          
         $guardar = Movimientos::create($data);
 
+        if($guardar)
+        {
+           //traigo la existencia para quitar una
+            $list_existencia = Existencia::get();
+
+            $cantidad_act = $list_existencia[0]['existencia'];
+
+            $new_cant = ($cantidad_act - 1 );
+
+            /*actualizo la existencia de las pruebas*/
+            Existencia::where('id', $list_existencia[0]['id'])
+                        ->update(['existencia' => $new_cant]);
+
+        }else{
+
+        }
+
         return json_encode(['user_id' => $guardar->id_personal]);
 
 

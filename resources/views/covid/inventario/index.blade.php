@@ -44,7 +44,7 @@
                           @foreach ($inv as $row)
                               <tr class="row{{ $row->id_inventario }}">
                               <td>{{ $row->id_inventario }}</td>
-                              <td>{{ $row->fecha }}</td>
+                              <td>{{ $row->created_at }}</td>
                               <td>{{ $row->getpru->descripcion }}</td>
                               <td>{{ $row->cantidad }}</td>
                               <td>{{ $row->observacion }}</td>

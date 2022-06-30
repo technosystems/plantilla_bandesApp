@@ -11,13 +11,13 @@ class Inventario extends Model
 
     protected $table = "covid.inventario";
 
-    public $timestamps = false;
+    //public $timestamps = false;
 
-     protected $primaryKey = 'id_inventario';
+    protected $primaryKey = 'id_inventario';
 
-    protected $fillable = ['id_tipo_prueba', 'cantidad', 'observacion', 'fecha', 'estatus'];
+    protected $fillable = ['id_inventario','id_tipo_prueba', 'cantidad', 'observacion', 'fecha', 'id_estatus'];
 
-	protected $hidden = ['id_inventario'];
+	protected $hidden = ['created_at', 'updated_at'];
 
 	public function getpru()
     {

@@ -12,7 +12,7 @@
                 <div class="content-left">
                   <span>Parsonal Activo</span>
                   <div class="d-flex align-items-end mt-2">
-                    <h4 class="mb-0 me-2">{{ App\Models\Personal::count() }}</h4>
+                    <h4 class="mb-0 me-2">{{ $personal }}</h4>
                    {{--  <small class="text-success">(+29%)</small> --}}
                   </div>
                   <small>Total Personal</small>

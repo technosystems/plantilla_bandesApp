@@ -21,7 +21,11 @@ class PersonalController extends Controller
         
         $list_existencia = Existencia::get();
 
-        return view('covid.personal.index',compact('list_existencia'));
+        $id_estatus = 3; 
+
+        $personal =  Personal::where('id_estatus', $id_estatus)->count();
+
+        return view('covid.personal.index',compact('list_existencia','personal'));
     }
 
     public function getPersonal()
