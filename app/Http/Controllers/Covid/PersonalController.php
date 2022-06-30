@@ -26,8 +26,10 @@ class PersonalController extends Controller
 
     public function getPersonal()
     {
-        
-        $data = Personal::get(); 
+    
+        $id_estatus = 3; 
+
+        $data =  Personal::where('id_estatus', $id_estatus)->get();
         //dd($data);
         return $data;
     }
