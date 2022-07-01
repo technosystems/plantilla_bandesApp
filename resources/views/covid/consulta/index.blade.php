@@ -10,6 +10,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="card-datatable table-responsive">
+                  @php $idEstatusPersonal;  @endphp
                   <table class="datatables-users table border-top table-sm" id="tablaModulos">
                     <thead>
                       <tr> 
@@ -121,7 +122,13 @@
 
     $(document).on("click", ".btnVolver", function(){           
 
-        window.location="personal";
+       var estatus_per = "<?php echo $idEstatusPersonal; ?>" ;
+       if( estatus_per == 3){
+         window.location="personal";
+       }else{
+         window.location="visitante";
+       }
+       
               
     });
 

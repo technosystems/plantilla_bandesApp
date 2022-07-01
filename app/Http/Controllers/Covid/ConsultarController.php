@@ -22,9 +22,13 @@ class ConsultarController extends Controller
     	//$data = Movimientos::get(); 
         $datos = Movimientos::where('id_personal', $id_personal)
                              ->orderBy('id','DESC')
+                             ->get();
+        $datos_personal = Personal::where('id_personal', $id_personal)
                              ->get(); 
-                          
-        return view('covid.consulta.index',compact('datos'));
+
+        $idEstatusPersonal = $datos_personal[0]->id_estatus; 
+       // dd($id_st_per);          
+        return view('covid.consulta.index',compact('datos','idEstatusPersonal'));
     }
 
     public function getMovimiento(Request $request)
