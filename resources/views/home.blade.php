@@ -15,8 +15,8 @@
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">Sistema para la Recepción y Control de Pruebas Covid</h5>
-                          <p class="mb-4">Sistema <span class="fw-bold">BANDES</span> para la Recepción, Inventario y Control de Pruebas Covid para el Personal y Visitantes.</p>
+                          <h5 class="card-title text-primary">Recepción y Control de Pruebas de Hisopado</h5>
+                          <p class="mb-4">Sistema <span class="fw-bold">BANDES</span> para la Recepción, Inventario y Control de Pruebas de Hisopado para el Personal y Visitantes.</p>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
@@ -29,31 +29,13 @@
 
                 </div>
  <!-- / reporte-->
-                <div class="col-md-12 col-lg-2">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="d-flex align-items-end row">
-                          <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
-                            <div class="card-title">
-                              <h5 class="text-nowrap mb-3">Existencia</h5>
-                             
-                            </div>
-                            <div class="mt-sm-auto">
-                              <small class="text-success text-nowrap fw-semibold"><i class='bx bx-chevron-up'></i> 68.2%</small>
-                              <h3 class="mb-0">23</h3>
-                            </div>
-                          </div>
-                          <div id="profileReportChart"></div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
+                
 
 
                 <!-- / modulos -->
-                  <div class="col-md-12 col-lg-4">
+                  <div class="col-md-12 col-lg-8 ">
                     <div class="row">
-                      <div class="col-lg-6 col-md-3 col-6 mb-4">
+                      <div class="col-lg-3 col-md-3 col-3 mb-3">
                         <div class="card">
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
@@ -72,13 +54,13 @@
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Empleados</h4>
-                              <a href="https://plantilla_bandesApp/resources/views/covid/personal.html" class="text-success fw-semibold">
+                              <a href="/personal" class="text-success fw-semibold">
                                 <div data-i18n="Ver mas">Ver mas</div>
                               </a>
                           </div>
                         </div>
                       </div>
-                      <div class="col-lg-6 col-md-3 col-6 mb-4">
+                      <div class="col-lg-3 col-md-3 col-3 mb-3">
                         <div class="card">
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
@@ -97,19 +79,14 @@
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Visitantes</h4>
-                             <a href="https://plantilla_bandesApp/resources/views/covid/personal.html" class="text-success fw-semibold">
+                             <a href="/visitante" class="text-success fw-semibold">
                                 <div data-i18n="Ver mas">Ver mas</div>
                               </a>
                           </div>
                         </div>
                       </div>
 
-                    </div>
-                  </div>
-
-                  <div class="col-md-12 col-lg-4">
-                    <div class="row">
-                       <div class="col-lg-6 col-md-3 col-6 mb-4">
+                      <div class="col-lg-3 col-md-3 col-3 mb-3">
                         <div class="card">
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
@@ -130,11 +107,13 @@
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Inventario</h4>
-                            <small class="text-success fw-semibold"><i class=''></i>Ver mas</small>
+                            <a href="/inventario" class="text-success fw-semibold">
+                                <div data-i18n="Ver mas">Ver mas</div>
+                              </a>
                           </div>
                         </div>
                       </div>
-                       <div class="col-lg-6 col-md-3 col-6 mb-4">
+                       <div class="col-lg-3 col-md-3 col-3 mb-3">
                         <div class="card">
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
@@ -160,6 +139,8 @@
 
                     </div>
                   </div>
+
+                 
                 <!-- / modulos -->
               </div>
           </div>

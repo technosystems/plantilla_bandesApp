@@ -40,10 +40,10 @@
                           <td>
                            <div class="btn-group">
 
-                              <form action="{{ route('personal.destroy', $row->id) }}" method="POST"
+                              <form action="{{ route('pdfrecibo', $row->id) }}" method="GET" target="_blank " 
                               style="display: inline-block;">
                               @csrf
-                              @method('DELETE')
+                             
                               <button class="btn btn-sm btn-primary" type="submit" >
                                <i class="mdi mdi-printer mt-2 text-white" data-toggle="tooltip" data-placement="top" title="Imprimir Comprobante."></i>
                               </button>

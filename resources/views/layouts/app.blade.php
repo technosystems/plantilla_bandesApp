@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/assets/img/logo-mini.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -104,6 +104,10 @@
       <style type="text/css">
         .bg-menu-theme .menu-text {
           color: #22790c;
+        }
+
+        .app-brand .layout-menu-toggle{
+          background-color: #0b711b;
         }
       </style>
       <span class="app-brand-text display-6 menu-text fw-bolder ms-0"><em>ANDES</em></span>
