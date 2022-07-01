@@ -53,10 +53,13 @@
 
               <div class="card-body">
 
-                 <!-- Nuevo Visitante 
+                 <!-- Nuevo Visitante
                 <a class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser" aria-controls="offcanvasAddUser"><span class="text-white">Nuevo Visitante</span></a> -->
-                
-                <a class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser" aria-controls="offcanvasAddUser"><span class="text-white">Nuevo Visitante</span></a>
+
+
+                  <button class='dt-button create-new btn btn-primary btnNewVisitante'>
+                    <i class='' data-toggle='tooltip' data-placement='top' title='Nuevo Visitante'>Nuevo Visitante</i>
+                  </button>
 
 
                  <!-- Fin Nuevo Visitante -->
@@ -71,8 +74,6 @@
                         <th>Apellidos</th>
                         <th>Gerencia</th>
                          <th>Estatus</th>
-
-
                         <th>Acciones</th>
                       </tr>
                     </thead>
@@ -84,7 +85,7 @@
        </div>
     </div>
     @include('covid.visitante.modal.prueba')
-    
+  @include('covid.visitante.modal.newvisitante')
   </div>
 @endsection
 
@@ -152,32 +153,32 @@
 
 
       /************** levanta la modal para registrar un NUEVO VISITANTE ********/
-      $(document).on("click", ".btnNewVisistante", function(){           
+      $(document).on("click", ".btnNewVisitante", function(){
 
         fila2 = $(this).closest("tr");
 
-        id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID 
+        id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID
 
         $('#id_personal').val(id);
 
-        $(".modal-title").text("Ingresar Resultado de la Prueba"); 
+        $(".modal-title").text("Ingresar Resultado de la Prueba");
 
-        $('#Modal1').modal('show');   
+        $('#Modal3').modal('show');
 
       });
 
       /************** levanta la modal para registrar los datos del resultado de la prueba covid ********/
-      $(document).on("click", ".btnPrb", function(){           
+      $(document).on("click", ".btnPrb", function(){
 
         fila2 = $(this).closest("tr");
 
-        id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID 
+        id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID
 
         $('#id_personal').val(id);
 
-        $(".modal-title").text("Ingresar Resultado de la Prueba"); 
+        $(".modal-title").text("Ingresar Resultado de la Prueba");
 
-        $('#Modal1').modal('show');   
+        $('#Modal1').modal('show');
 
       });
 
@@ -186,7 +187,7 @@
       $('#form_prueba').submit(function(e){
         e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
 
-    
+
         var data = $('#form_prueba').serialize();
         $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');
         $.ajax({
@@ -214,13 +215,13 @@
       });
 
       /******** levanta la modal de consulta para ver historial de pruebas covid del visitante *****/
-      $(document).on("click", ".btnCsta", function(){           
+      $(document).on("click", ".btnCsta", function(){
 
         fila = $(this).closest("tr");
 
-        id  = parseInt(fila.find('td:eq(0)').text()); //capturo el ID 
+        id  = parseInt(fila.find('td:eq(0)').text()); //capturo el ID
 
-        id = btoa(id); // Base64 encode the String 
+        id = btoa(id); // Base64 encode the String
 
         var opcion = 2;
 
