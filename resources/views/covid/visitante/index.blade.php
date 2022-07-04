@@ -181,53 +181,106 @@
         $('#Modal1').modal('show');
 
       });
+//va a la ruta para la condulta del recor y manda id
+  $(document).on("click", ".btnCsta", function(){
 
+      fila = $(this).closest("tr");
 
+      id  = parseInt(fila.find('td:eq(0)').text()); //capturo el ID
+
+      id = btoa(id); // Base64 encode the String
+
+      var opcion = 2;
+
+      window.location="consulta?id="+id;
+
+  });
       //submit para el Alta y Actualización
       $('#form_prueba').submit(function(e){
         e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
-
-
         var data = $('#form_prueba').serialize();
         $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');
         $.ajax({
-             //url: "/user/" + user_id,
-              url: "movimientos",
-              headers: {'X-CSRF-TOKEN': $('#form_prueba #_token').val()},
-              type: "POST",
-             // datatype:"json",
-              cache: false,
-              data:  data,
-            success: function (response) {
-              console.log(response);
-            },error: function (data) {
-              var errors = data.responseJSON;
-              $.each( errors.errors, function( key, value ) {
-                toastr.error(value);
-                return false;
-              });
-              //$('input').iCheck('enable');
-              $('#main-form input, #main-form button').removeAttr('disabled');
-              $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
-            }
-         });
-        $('#Modal1').modal('hide');
+                  //url: "/user/" + user_id,
+                  url: "movimientos",
+                  headers: {'X-CSRF-TOKEN': $('#form_prueba #_token').val()},
+                  type: "POST",
+                  // datatype:"json",
+                  cache: false,
+                  data:  data,
+                  success: function (response)
+                  {
+                      var json = $.parseJSON(response);
+                      console.log(json.user_id);
+                      var id = btoa(json.user_id);
+
+                      Swal.fire({
+                                title:'¡Datos Insertados!',
+                                text:'Datos Ingresados con Exito',
+                                icon:"success",
+                                customClass:{confirmButton:"btn btn-primary"},
+                                buttonsStyling:!1
+                              })
+                      $('#Modal1').modal('hide');
+                      window.location="consulta?id="+id;
+                  },error: function (data)
+                  {
+                      var errors = data.responseJSON;
+                      $.each( errors.errors, function( key, value )
+                          {
+                            toastr.error(value);
+                            return false;
+                          });
+                      //$('input').iCheck('enable');
+                      $('#main-form input, #main-form button').removeAttr('disabled');
+                      $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
+                  }
+               });
       });
 
-      /******** levanta la modal de consulta para ver historial de pruebas covid del visitante *****/
-      $(document).on("click", ".btnCsta", function(){
+      //submit para guardar el nuevo visitante
+      $('#form_newvisitante').submit(function(e){
+        e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
+        var data = $('#form_newvisitante').serialize();
+        $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');
+        $.ajax({
+                  //url: "/user/" + user_id,
+                  url: "movimientos",
+                  headers: {'X-CSRF-TOKEN': $('#form_newvisitante #_token').val()},
+                  type: "POST",
+                  // datatype:"json",
+                  cache: false,
+                  data:  data,
+                  success: function (response)
+                  {
+                      var json = $.parseJSON(response);
+                      console.log(json.user_id);
+                      var id = btoa(json.user_id);
 
-        fila = $(this).closest("tr");
-
-        id  = parseInt(fila.find('td:eq(0)').text()); //capturo el ID
-
-        id = btoa(id); // Base64 encode the String
-
-        var opcion = 2;
-
-        window.location="consulta?id="+id;
-
+                      Swal.fire({
+                                title:'¡Datos Insertados!',
+                                text:'Datos Ingresados con Exito',
+                                icon:"success",
+                                customClass:{confirmButton:"btn btn-primary"},
+                                buttonsStyling:!1
+                              })
+                      $('#Modal3').modal('hide');
+                      window.location="visitante?id="+id;
+                  },error: function (data)
+                  {
+                      var errors = data.responseJSON;
+                      $.each( errors.errors, function( key, value )
+                          {
+                            toastr.error(value);
+                            return false;
+                          });
+                      //$('input').iCheck('enable');
+                      $('#main-form input, #main-form button').removeAttr('disabled');
+                      $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
+                  }
+               });
       });
+
   </script>
 
   <script>

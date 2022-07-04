@@ -1,7 +1,7 @@
 <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
     <div class="modal-dialog modal-centered modal-lg">
         <div class="modal-content ">
-
+aqui
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalgridLabel">Grid Modals</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -9,7 +9,7 @@
 
             <div class="modal-body">
                 <!--<form id="main-form">-->
-                <form role="form" id="form_prueba" autocomplete="off">    
+                <form role="form" id="form_prueba" autocomplete="off">
 
                     <input type="hidden" id="_url" value="{{ url('user') }}">
                     <input type="hidden" id="_token" value="{{ csrf_token() }}">
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="col-xxl-12">
-                            <!--                           
+                            <!--
                                 <div class="col-12">
                                 <label class="form-label" for="bootstrap-maxlength-example2">Observaciones:</label>
                                 <textarea id="defaultInput" class="form-control bootstrap-maxlength-example" rows="2" maxlength="250"></textarea>
@@ -89,7 +89,7 @@
           'flatpickr-range': {
             required: true
           }
-           
+
         }
     });
 

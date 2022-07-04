@@ -1,44 +1,36 @@
 <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
-    <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
-    <div class="modal-content p-3 p-md-5">
-      <div class="modal-body">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <div class="text-center mb-4">
-          <h3>Agregar nuevo Visitante</h3>
-NUEVO
-        </div>
-        <form id="addNewCCForm" class="row g-3" onsubmit="return false">
-            <div class="card-body">
-              <form class="browser-default-validation">
-                <div class="mb-3">
-                  <label class="form-label" for="basic-default-name">Cédula</label>
-                  <input type="text" class="form-control" id="basic-default-name" placeholder="John Doe" required />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" for="basic-default-name">Nombre</label>
-                  <input type="text" class="form-control" id="basic-default-name" placeholder="John Doe" required />
-                </div>
-                  <div class="mb-3">
-                  <label class="form-label" for="basic-default-name">Apellido</label>
-                  <input type="text" class="form-control" id="basic-default-name" placeholder="John Doe" required />
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label" for="basic-default-country">Tipo de Visita</label>
-                  <select class="form-select" id="basic-default-country" required>
-                    <option value="">Seleccione</option>
-                    <option value="usa">ENTREVISTA LABORAL</option>
-                    <option value="uk">DE CORTESÍA</option>
-                    <option value="france">PRESENTACION</option>
-                    <option value="australia">CEREMONIA</option>
-                    <option value="spain">NEGOCIOS</option>
-                  </select>
-                </div>
-   <div class="col-md-6 col-12 mb-2">
+    <div class="modal-dialog modal-centered modal-lg">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalgridLabel">Grid Modals</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                 <form role="form" id="form_newvisitante" autocomplete="off">
+                      <input type="hidden" id="_url" value="{{ url('user') }}">
+                      <input type="hidden" id="_token" value="{{ csrf_token() }}">
+                       <!-- <input type="hidden" id="id_personal" name="id_personal" value=""> -->
+                    <div class="row g-3">
+                        <div class="col-xxl-12">
+                            <div class="mb-3">
+                              <label for="defaultInput" class="form-label">Nombre</label>
+                              <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Nombre" />
+                            </div>
+                             <div class="mb-3">
+                              <label for="defaultInput" class="form-label">Apellido</label>
+                              <input id="apellido" name="apellido" class="form-control" type="text" placeholder="Apellido" />
+                            </div>
+                             <div class="mb-3">
+                              <label for="defaultInput" class="form-label">Cédula</label>
+                              <input id="cedula" name="cedula" class="form-control" type="text" placeholder="Cedula" />
+                            </div>
+                        </div><!--end col-->
+                        <!-- Range Picker-->
+                        <div class="col-md-6 col-12 mb-2">
                           <label for="flatpickr-range" class="form-label">Rango de Duración</label>
                           <input type="text" class="form-control" placeholder="YYYY-MM-DD to YYYY-MM-DD" id="flatpickr-range" name="flatpickr_range" />
                         </div>
-                    <div class="col-xxl-12">
+                        <div class="col-xxl-12">
                             <div class="col-md">
                               <small class="text-light fw-semibold">Resultado de la Prueba</small>
                               <div class="form-check mt-3">
@@ -55,31 +47,25 @@ NUEVO
                               </div>
                             </div>
                         </div>
+                        <div class="col-xxl-12">
+                            <div class="mb-3">
+                              <label for="defaultInput" class="form-label">Observaciones</label>
+                              <input id="observaciones" name="observaciones" class="form-control" type="text" placeholder="Observaciones" />
+                            </div>
+                        </div><!--end col-->
+                        <div class="col-lg-12">
+                            <div class="hstack gap-2 justify-content-end">
 
-
-                <div class="mb-3">
-                  <label class="form-label" for="basic-default-bio">Observaciones</label>
-                  <textarea class="form-control" id="observaciones" name="observaciones" rows="3" required></textarea>
-                </div>
-                <div class="mb-3">
-
-                </div>
-                <div class="mb-3">
-
-                </div>
-
-                <div class="row">
-                      <div class="col-12 text-center">
-                          <button type="submit" class="btn btn-primary me-sm-3 me-1 mt-3">Guardar</button>
-                          <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
-                      </div>
-                </div>
-              </form>
+                                <button type="submit" class="btn btn-primary float-right" id="boton">
+                         <i class="float-left far fa-save text-white" id="ajax-icon"></i> <span class="text-white ml-1">{{ __('Guardar datos') }}</span>
+                         </button>
+                            </div>
+                        </div><!--end col-->
+                    </div><!--end row-->
+                </form>
             </div>
-        </form>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 
 @push('scripts')
