@@ -2,6 +2,16 @@
 @section('title', 'Personal')
 @section('content')
 
+<style>
+   .rojo{
+    background-color: #f08080 !important;
+    font-style:italic;
+
+ }
+ .verde{
+    background-color: #90ee90 !important;
+ }
+</style>
  <div class="page-content">
   <div class="container-fluid">
 
@@ -27,13 +37,31 @@
                     </thead>
                      <tbody>
                       @foreach ($datos as $row)
-                          <tr class="row{{ $row->id }}">
+                           @php
+                              if($row->resultado == 1)
+                              {
+                                  echo " <tr class='row{{ $row->id }}' >";
+                              }else{
+                                  echo " <tr class='rojo row{{ $row->id }}' style='color:white'>";
+                              }
+                           @endphp
+                         
                           <td>{{ $row->id }}</td>
                           <td>{{ $row->desde. " / " .$row->hasta }}</td>
-                           <td>{{ $row->id_personal }}</td>
-                          <td>{{ $row->id_personal }}</td>
-                          <td>{{ $row->id_personal }}</td>
-                          <td>{{ $row->id_personal }}</td>
+                           <td>{{ $row->getPersonal->cedula }}</td>
+                          <td>{{ $row->getPersonal->tx_nombres }}</td>
+                          <td>{{ $row->getPersonal->tx_apellidos }}</td>
+                          @php
+                            if($row->getPersonal->id_estatus == 3)
+                            {
+                              $condicion = "Empleado";
+                            }
+                            else{
+                              $condicion = "Visitante";
+                          }
+
+                          @endphp
+                          <td>{{ $condicion }}</td>
                           @php
                             if($row->resultado == 1)
                             {

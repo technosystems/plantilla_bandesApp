@@ -28,4 +28,9 @@ class Movimientos extends Model
 	{
 	    return Movimientos::find($id);
 	}
+
+	public function getPersonal()
+    {
+        return $this->hasOne(Personal::class, 'id_personal', 'id_personal');
+	}
 }
