@@ -32,7 +32,7 @@
                 <div class="content-left">
                   <span>Pruebas en Existencia</span>
                   <div class="d-flex align-items-end mt-2">
-                      <h4 class="mb-0 me-2">{{ $list_existencia[0]['existencia'] }}</h4>
+                    <h4 class="mb-0 me-2">{{ $list_existencia[0]['existencia'] }}</h4>
                     {{-- <h4 class="mb-0 me-2">{{ App\Models\Existencia::obtenerExistencia() }}</h4>--}}
                     {{-- <small class="text-success">(+18%)</small> --}}
                   </div>
@@ -53,14 +53,9 @@
 
               <div class="card-body">
 
-                 <!-- Nuevo Visitante
-                <a class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser" aria-controls="offcanvasAddUser"><span class="text-white">Nuevo Visitante</span></a> -->
-
-
-                  <button class='dt-button create-new btn btn-primary btnNewVisitante'>
-                    <i class='' data-toggle='tooltip' data-placement='top' title='Nuevo Visitante'>Nuevo Visitante</i>
-                  </button>
-
+                 <!-- Nuevo Visitante -->
+                    <button class="btn btn-primary btn-md" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#addPermissionModal"><span>Nuevo Visitante</span>
+                    </button>
 
                  <!-- Fin Nuevo Visitante -->
 
@@ -72,7 +67,6 @@
                         <th>Cedula</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
-                        <th>Gerencia</th>
                          <th>Estatus</th>
                         <th>Acciones</th>
                       </tr>
@@ -85,8 +79,48 @@
        </div>
     </div>
     @include('covid.visitante.modal.prueba')
-  @include('covid.visitante.modal.newvisitante')
+
   </div>
+
+     <!-- Add Permission Modal -->
+      <div class="modal fade" id="addPermissionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-simple">
+          <div class="modal-content p-3 p-md-5">
+            <div class="modal-body">
+              <button type="button" class="btn-close btn-pinned" data-bs-dismiss="modal" aria-label="Close"></button>
+              <div class="text-center mb-4">
+                <h3>Ingresar nuevo visitante!</h3>
+
+              </div>
+              {!! Form::open(['route' => ['visitante.store'],'method' => 'POST']) !!}
+                <div class="col-12 mb-3">
+                  <label class="form-label" for="modalPermissionName">Nombre:</label>
+                  <input type="text" name="tx_nombres" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese el nombre." autofocus required />
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label" for="modalPermissionName">Apellido:</label>
+                  <input type="text" name="tx_apellidos" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese el apellido." autofocus required />
+                </div>
+                 <div class="col-12 mb-3">
+                  <label class="form-label" for="modalPermissionName">Cedula:</label>
+                  <input type="text" name="cedula" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese el apellido." autofocus required />
+                </div>
+
+
+
+
+                <div class="col-12 text-center demo-vertical-spacing">
+                  <button type="submit" class="btn btn-primary me-sm-3 me-1">Guardar</button>
+                  <button type="reset" class="btn btn-label-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                </div>
+               {!! Form::close()!!}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ Add Permission Modal -->
+
+
 @endsection
 
 @push('styles')
@@ -137,7 +171,7 @@
             { extend: 'csv', className: 'btn-primary' },
             { extend: 'print', className: 'btn-primary' },
            // { extend: 'print', text: '<i class="fas fa-print"></i> Print',className: 'btn-primary' },
-            
+
         ],
           "ajax":{
           "url": "{{ url('visitantes') }}",
@@ -149,7 +183,6 @@
           {"data": "cedula"},
           {"data": "tx_nombres"},
           {"data": "tx_apellidos"},
-          {"data": "id_gerencia"},
           {"data": "id_estatus"},
 
           {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='bx bx-detail' data-toggle='tooltip' data-placement='top' title='Registrar Resultado'></i></button><button class='btn btn-success btn-sm btn-circle btnCsta'><i class='bx bx-link-alt'  data-toggle='tooltip' data-placement='top' title='Histórico de pruebas'></i></button></div>"}
@@ -157,21 +190,6 @@
       });
       var fila; //captura la fila, para editar o eliminar
 
-
-      /************** levanta la modal para registrar un NUEVO VISITANTE ********/
-      $(document).on("click", ".btnNewVisitante", function(){
-
-        fila2 = $(this).closest("tr");
-
-        id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID
-
-        $('#id_personal').val(id);
-
-        $(".modal-title").text("Ingresar Resultado de la Prueba");
-
-        $('#Modal3').modal('show');
-
-      });
 
       /************** levanta la modal para registrar los datos del resultado de la prueba covid ********/
       $(document).on("click", ".btnPrb", function(){
@@ -245,47 +263,7 @@
       });
 
       //submit para guardar el nuevo visitante
-      $('#form_newvisitante').submit(function(e){
-        e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
-        var data = $('#form_newvisitante').serialize();
-        $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');
-        $.ajax({
-                  //url: "/user/" + user_id,
-                  url: "movimientos",
-                  headers: {'X-CSRF-TOKEN': $('#form_newvisitante #_token').val()},
-                  type: "POST",
-                  // datatype:"json",
-                  cache: false,
-                  data:  data,
-                  success: function (response)
-                  {
-                      var json = $.parseJSON(response);
-                      console.log(json.user_id);
-                      var id = btoa(json.user_id);
-
-                      Swal.fire({
-                                title:'¡Datos Insertados!',
-                                text:'Datos Ingresados con Exito',
-                                icon:"success",
-                                customClass:{confirmButton:"btn btn-primary"},
-                                buttonsStyling:!1
-                              })
-                      $('#Modal3').modal('hide');
-                      window.location="visitante?id="+id;
-                  },error: function (data)
-                  {
-                      var errors = data.responseJSON;
-                      $.each( errors.errors, function( key, value )
-                          {
-                            toastr.error(value);
-                            return false;
-                          });
-                      //$('input').iCheck('enable');
-                      $('#main-form input, #main-form button').removeAttr('disabled');
-                      $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
-                  }
-               });
-      });
+//aqui
 
   </script>
 
