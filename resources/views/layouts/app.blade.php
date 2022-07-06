@@ -230,6 +230,12 @@
   <script src="/assets/vendor/libs/datatables-responsive/datatables.responsive.js"></script>
   <script src="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.js"></script>
 
+  <script src="/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.js"></script>
+  <script src="/assets/vendor/libs/datatables-buttons/datatables-buttons.js"></script>
+  <script src="/assets/vendor/libs/datatables-buttons/buttons.print.js"></script>
+  <script src="/assets/vendor/libs/datatables-buttons/buttons.html5.js"></script>
+  <script src="/assets/vendor/libs/pdfmake/pdfmake.js"></script>
+
 
   <script src="/assets/vendor/libs/select2/select2.js"></script>
   <script src="/assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>

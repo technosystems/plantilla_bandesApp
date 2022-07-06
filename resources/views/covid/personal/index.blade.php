@@ -115,8 +115,12 @@
          responsive:false,
          lengthChange: true,
          buttons: [
-            'excel', 'pdf', 'print','colvis'
-        ],
+           // 'copy', 'csv', 'excel', 'pdf','print'
+            { extend: 'pdf', className: 'btn-primary' },
+            { extend: 'copy', className: 'btn-primary' },
+            { extend: 'csv', className: 'btn-primary' },
+            { extend: 'print', className: 'btn-primary' },    
+          ],
     "ajax":{            
         "url": "{{ url('personals') }}", 
         "method": 'GET', //usamos el metodo POST
@@ -130,7 +134,7 @@
         {"data": "id_gerencia"},
         
         
-        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='mdi mdi-clipboard-check' data-toggle='tooltip' data-placement='top' title='Cargar Resultado'></i></button><button class='btn btn-success  btn-sm btn-circle btnCsta'><i class='mdi mdi-account-search' data-toggle='tooltip' data-placement='top' title='Historico de Pruebas'></i></button></div>"}
+        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='bx bx-detail' data-toggle='tooltip' data-placement='top' title='Cargar Resultado'></i></button><button class='btn btn-success  btn-sm btn-circle btnCsta'><i class='bx bx-link-alt' data-toggle='tooltip' data-placement='top' title='Historico de Pruebas'></i></button></div>"}
     ]
 });
     var fila; //captura la fila, para editar o eliminar

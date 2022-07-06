@@ -42,4 +42,20 @@ class ConsultarController extends Controller
         //dd($data);
         return $data;
     }
+
+    public function consulta()
+    {
+        
+        //$data = Movimientos::get(); 
+        $datos = Movimientos::orderBy('id','DESC')
+                             ->get();
+
+       /* $datos_personal = Personal::where('id_personal', $id_personal)
+                             ->get();*/ 
+
+       /* $idEstatusPersonal = $datos_personal[0]->id_estatus; */
+       // dd($id_st_per);          
+        return view('covid.consulta.view',compact('datos'));
+    }
+
 }

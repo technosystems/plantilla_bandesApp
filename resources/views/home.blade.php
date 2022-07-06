@@ -132,7 +132,9 @@
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Consulta</h4>
-                            <small class="text-success fw-semibold"><i class=''></i>Ver mas</small>
+                           <a href="/view" class="text-success fw-semibold">
+                                <div data-i18n="Ver mas">Ver mas</div>
+                              </a>
                           </div>
                         </div>
                       </div>

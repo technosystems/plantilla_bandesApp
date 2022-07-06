@@ -10,12 +10,16 @@
             <div class="card">
               <div class="card-body">
                 <div class="card-datatable table-responsive">
-                  @php $idEstatusPersonal;  @endphp
+                 
                   <table class="datatables-users table border-top table-sm" id="tablaModulos">
                     <thead>
                       <tr> 
                         <th>#</th>
                         <th>Fecha</th>
+                        <th>Cedula</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Laboral</th>
                         <th>Resultado</th>
                         <th>Observación</th>
                         <th>Acción</th>
@@ -26,6 +30,10 @@
                           <tr class="row{{ $row->id }}">
                           <td>{{ $row->id }}</td>
                           <td>{{ $row->desde. " / " .$row->hasta }}</td>
+                           <td>{{ $row->id_personal }}</td>
+                          <td>{{ $row->id_personal }}</td>
+                          <td>{{ $row->id_personal }}</td>
+                          <td>{{ $row->id_personal }}</td>
                           @php
                             if($row->resultado == 1)
                             {
@@ -58,11 +66,7 @@
                         </tbody>
                   </table>
                 </div>
-                  <div class="col-12">
-                    <button type="button" class="btn btn-secondary btnVolver">
-                     <i class='bx bx-left-arrow-alt'></i>&nbsp; Volver
-                    </button>
-                  </div>
+                  
               </div>
             </div>
           </div>
@@ -126,17 +130,7 @@
         ],
   });
 
-    $(document).on("click", ".btnVolver", function(){           
-
-       var estatus_per = "<?php echo $idEstatusPersonal; ?>" ;
-       if( estatus_per == 3){
-         window.location="personal";
-       }else{
-         window.location="visitante";
-       }
-       
-              
-    });
+   
 
   </script>
 

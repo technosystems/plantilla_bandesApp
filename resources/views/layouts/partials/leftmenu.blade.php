@@ -94,12 +94,12 @@
           </a>
         </li>
          <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
-          <a href="/permisos" class="menu-link">
+          <a href="/view" class="menu-link">
             <div data-i18n="Consulta">Consulta</div>
           </a>
         </li>
         <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
-          <a href="/permisos" class="menu-link">
+          <a href="/#" class="menu-link">
             <div data-i18n="Reportes">Reportes</div>
           </a>
           

@@ -131,8 +131,14 @@
            responsive:false,
            lengthChange: true,
            buttons: [
-              'excel', 'pdf', 'print','colvis'
-           ],
+            //'copy', 'csv', 'excel', 'pdf','print',
+            { extend: 'pdf', className: 'btn-primary' },
+            { extend: 'copy', className: 'btn-primary' },
+            { extend: 'csv', className: 'btn-primary' },
+            { extend: 'print', className: 'btn-primary' },
+           // { extend: 'print', text: '<i class="fas fa-print"></i> Print',className: 'btn-primary' },
+            
+        ],
           "ajax":{
           "url": "{{ url('visitantes') }}",
           "method": 'GET', //usamos el metodo POST
