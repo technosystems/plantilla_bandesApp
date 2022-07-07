@@ -10,6 +10,8 @@ use App\Models\Visitante;
 use App\Models\Existencia;
 use App\Models\Personal;
 
+use App\Models\Movimientos;
+
 
 class VisitanteController extends Controller
 {
@@ -63,6 +65,17 @@ class VisitanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+     public function getMovimientos()
+    {
+       /*  $data =Personal::where('id_estatus', '=', 4) // id_estatus 4 = visitante
+                ->get();
+        //dd($data);
+        return $data;*/
+
+        $data2 =  Movimientos::get();
+        //dd($data2);
+        return $data2;
+    }
   public function store(Request $request)
     {
         //dd($request);
@@ -70,15 +83,38 @@ class VisitanteController extends Controller
          $id_estatus = "4";
 
          $data = array();
-         $data['tx_nombres'] = $request->tx_nombres;
-         $data['tx_apellidos']       = $request->tx_apellidos;
-         $data['cedula']    = $request->cedula;
-         $data['id_estatus']     = $id_estatus;
+         $data['tx_nombres']   = $request->tx_nombres;
+         $data['tx_apellidos'] = $request->tx_apellidos;
+         $data['cedula']       = $request->cedula;
+         $data['id_estatus']   = $id_estatus;
 
+         $guardar = Visitante::create($data);
 
-        $guardar = Visitante::create($data);
+        if($guardar) // si fue exitoso el insert
+        {
+           $id = $guardar->id_personal;
 
-       /* if($guardar) // si fue exitoso el insert
+           $list_visitante = Visitante::get();
+
+          $id_personal = $list_visitante[0]['id_personal'];
+             //dd($id_personal);
+         $data2 = array();
+         $data2['id_tipo_prueba'] = 1;
+         $data2['desde']          = substr($request->flatpickr_range2, 0,10);
+         $data2['hasta']          = substr($request->flatpickr_range2, -10);
+         $data2['id_personal']    =  $id;
+         $data2['resultado']       = $request->default_radio_3;
+
+         $data2['observacion']     = $request->observaciones;
+// dd($data2);
+
+         $guardar = Movimientos::create($data2);  // }else{
+
+        }else{
+            // si esta mal redirigelo al home con un mensaje
+        }
+
+  /* if($guardar) // si fue exitoso el insert
         {
             //traigo la existencia pa incrementarla
             $list_existencia = Existencia::get();
@@ -86,18 +122,18 @@ class VisitanteController extends Controller
             $cantidad_act = $list_existencia[0]['existencia'];
 
             $new_cant = ($data['cantidad']+ $cantidad_act);
-*/
+
             /*actualizo la existencia de las pruebas*/
-            /* Existencia::where('id', $list_existencia[0]['id'])
+          /*  Existencia::where('id', $list_existencia[0]['id'])
                         ->update(['existencia' => $new_cant]);
 
-       }else{
+        }else{
 
         }*/
 
         //Inventario::create($request->only('name'));
 
-        return redirect()->route('visitante.index');
+  return redirect()->route('visitante.index');
     }
 
     /**

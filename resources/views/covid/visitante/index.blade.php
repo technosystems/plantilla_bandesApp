@@ -54,8 +54,11 @@
               <div class="card-body">
 
                  <!-- Nuevo Visitante -->
+                 <div class="col-12 mb-3">
                     <button class="btn btn-primary btn-md" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#addPermissionModal"><span>Nuevo Visitante</span>
                     </button>
+                  </div>
+
 
                  <!-- Fin Nuevo Visitante -->
 
@@ -105,9 +108,40 @@
                   <label class="form-label" for="modalPermissionName">Cedula:</label>
                   <input type="text" name="cedula" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese el apellido." autofocus required />
                 </div>
-
-
-
+                  <!--/ Add Permission Modal -->
+                 <div class="col-md-6 col-12 mb-2">
+                          <label for="flatpickr-range2" class="form-label">Rango de Duración:</label>
+                          <input type="text" class="form-control" placeholder="YYYY-MM-DD to YYYY-MM-DD" id="flatpickr-range2" name="flatpickr_range2" />
+                 </div>
+                     <div class="col-xxl-12">
+                            <div class="col-md">
+                              <small class="form-label">Resultado de la Prueba:</small>
+                              <div class="form-check mt-3">
+                                <input name="default-radio-3" class="form-check-input" type="radio" value="2" id="defaultRadio3" />
+                                <label class="form-check-label" for="defaultRadio3">
+                                  Positivo
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input name="default-radio-3" class="form-check-input" type="radio" value="1" id="defaultRadio4" checked />
+                                <label class="form-check-label" for="defaultRadio4">
+                                  Negativo
+                                </label>
+                              </div>
+                            </div>
+                        </div>
+                                <div class="col-xxl-12">
+                            <!--
+                                <div class="col-12">
+                                <label class="form-label" for="bootstrap-maxlength-example2">Observaciones:</label>
+                                <textarea id="defaultInput" class="form-control bootstrap-maxlength-example" rows="2" maxlength="250"></textarea>
+                                </div>
+                            -->
+                            <div class="mb-3">
+                            <label for="defaultInput" class="form-label">Observaciones</label>
+                            <input id="observaciones" name="observaciones" class="form-control" type="text" placeholder="Observaciones" />
+                            </div>
+                        </div><!--end col-->
 
                 <div class="col-12 text-center demo-vertical-spacing">
                   <button type="submit" class="btn btn-primary me-sm-3 me-1">Guardar</button>
@@ -119,6 +153,8 @@
         </div>
       </div>
       <!--/ Add Permission Modal -->
+
+
 
 
 @endsection
