@@ -48,8 +48,8 @@
                               <td>{{ $row->getpru->descripcion }}</td>
                               <td>{{ $row->cantidad }}</td>
                               <td>{{ $row->observacion }}</td>
-                              <td>
-                               <div class="btn-group">
+                            <!--  <td>
+                                 <div class="btn-group">
 
                                 @can('Eliminar Permisos')
                                   <form action="{{ route('inventario.destroy', $row->id_inventario) }}" method="POST"
@@ -62,9 +62,9 @@
                                   </button>
                                 </form>
                                @endcan
-                               </div>
+                               </div> 
 
-                              </td>
+                              </td>-->
                               </tr>
 
                               @endforeach

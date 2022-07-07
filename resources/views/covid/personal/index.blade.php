@@ -37,7 +37,7 @@
                   <small>Total</small>
                 </div>
                 <span class="badge bg-label-danger rounded p-2">
-                  <i class="bx bx-user-plus bx-sm"></i>
+                 <i class='bx bx-plus-medical bx-sm'></i>
                 </span>
               </div>
             </div>
