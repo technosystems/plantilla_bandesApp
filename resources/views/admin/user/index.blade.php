@@ -68,8 +68,12 @@
 
               <div class="card-body">
 
-                <a class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser" aria-controls="offcanvasAddUser"><span class="text-white">Nuevo usuario</span></a>
-
+                <div class="container-fluid">
+                  <div class="col-3">
+                    <a class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser" aria-controls="offcanvasAddUser"><span class="text-white">Nuevo usuario</span></a>
+                  </div>
+                </div>
+                <br>
                 <div class="card-datatable table-responsive">
                   <table class="datatables-users table border-top table-sm" id="tablaModulos">
                     <thead>
@@ -138,8 +142,12 @@
          responsive:false,
          lengthChange: true,
          buttons: [
-            'excel', 'pdf', 'print','colvis'
-        ],
+           // 'copy', 'csv', 'excel', 'pdf','print'
+            { extend: 'pdf', className: 'btn-primary' },
+            { extend: 'copy', className: 'btn-primary' },
+            { extend: 'csv', className: 'btn-primary' },
+            { extend: 'print', className: 'btn-primary' },    
+          ],
     "ajax":{
         "url": "{{ url('users') }}",
         "method": 'GET', //usamos el metodo POST

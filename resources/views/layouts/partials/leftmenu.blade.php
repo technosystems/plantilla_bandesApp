@@ -20,7 +20,7 @@
     <!-- class="menu-item open" -->
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-user"></i>
+        <i class=' menu-icon  tf-icons bx bx-lock-alt'></i>
         <div data-i18n="Seguridad">Seguridad</div>
       </a>
       <ul class="menu-sub">
@@ -66,13 +66,13 @@
 
     <li class="menu-item ">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-user"></i>
+        <i class='menu-icon  tf-icons bx bx-plus-medical' > </i>
         <div data-i18n="Pruebas Covid">Pruebas Covid</div>
       </a>
       <ul class="menu-sub">
         
         <li class="menu-item {{ request()->routeIs('user*') ? 'active open' : '' }}">
-          <a href="/user" class="menu-link">
+          <a href="{{ url('/') }}" class="menu-link">
             <div data-i18n="Tablero Principal">Panel Principal</div>
           </a>
         
@@ -99,7 +99,7 @@
           </a>
         </li>
         <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
-          <a href="/#" class="menu-link">
+          <a href="/reportes" class="menu-link">
             <div data-i18n="Reportes">Reportes</div>
           </a>
           
