@@ -92,63 +92,53 @@
             <div class="modal-body">
               <button type="button" class="btn-close btn-pinned" data-bs-dismiss="modal" aria-label="Close"></button>
               <div class="text-center mb-4">
-                <h3> Ingrese nuevo Visitante</h3>
-
+                  <h3> Ingrese nuevo Visitante</h3>
               </div>
-              {!! Form::open(['route' => ['visitante.store'],'method' => 'POST']) !!}
-                <div class="col-12 mb-3">
-                  <label class="form-label" for="modalPermissionName">Nombre:</label>
-                  <input type="text" name="tx_nombres" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese el nombre." autofocus required />
-                </div>
-                <div class="col-12 mb-3">
-                  <label class="form-label" for="modalPermissionName">Apellido:</label>
-                  <input type="text" name="tx_apellidos" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese el apellido." autofocus required />
-                </div>
-                 <div class="col-12 mb-3">
-                  <label class="form-label" for="modalPermissionName">Cedula:</label>
-                  <input type="text" name="cedula" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese el apellido." autofocus required />
-                </div>
-                  <!--/ Add Permission Modal -->
-                 <div class="col-md-6 col-12 mb-2">
-                          <label for="flatpickr-range2" class="form-label">Rango de Duración:</label>
-                          <input type="text" class="form-control" placeholder="YYYY-MM-DD to YYYY-MM-DD" id="flatpickr-range2" name="flatpickr_range2" />
-                 </div>
-                           <div class="col-xxl-12">
-                            <div class="col-md">
-                              <small class="form-label">Resultado de la Prueba:</small>
-                              <div class="form-check mt-3">
-                                <input name="default_radio" class="form-check-input" type="radio" value="2" id="defaultRadio3" />
-                                <label class="form-check-label" for="defaultRadio3">
-                                  Positivo
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input name="default_radio" class="form-check-input" type="radio" value="1" id="defaultRadio4" checked />
-                                <label class="form-check-label" for="defaultRadio4">
-                                  Negativo
-                                </label>
-                              </div>
-                            </div>
+              {!! Form::open(['route' => ['visitante.store'],'method' => 'POST', 'id' => 'form_nuevo_visitante'], ) !!}
+                        <div class="col-12 mb-3">
+                        <label class="form-label" for="modalPermissionName">Nombre:</label>
+                        <input type="text" name="tx_nombres" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese el nombre." autofocus required />
                         </div>
+                        <div class="col-12 mb-3">
+                        <label class="form-label" for="modalPermissionName">Apellido:</label>
+                        <input type="text" name="tx_apellidos" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese el apellido." autofocus required />
+                        </div>
+                        <div class="col-12 mb-3">
+                        <label class="form-label" for="modalPermissionName">Cedula:</label>
+                        <input type="text" name="cedula" id="modalPermissionName" name="modalPermissionName" class="form-control" placeholder="Ingrese el apellido." autofocus required />
+                        </div>
+                        <div class="col-md-6 col-12 mb-2">
+                        <label for="flatpickr-range2" class="form-label">Rango de Duración:</label>
+                        <input type="text" class="form-control" placeholder="YYYY-MM-DD to YYYY-MM-DD" id="flatpickr-range2" name="flatpickr_range2" />
+                        </div>
+                        <div class="col-xxl-12">
+                        <div class="col-md">
+                        <small class="form-label">Resultado de la Prueba:</small>
+                        <div class="form-check mt-3">
+                        <input name="default_radio" class="form-check-input" type="radio" value="2" id="defaultRadio3" />
+                        <label class="form-check-label" for="defaultRadio3">
+                        Positivo
+                        </label>
+                        </div>
+                        <div class="form-check">
+                        <input name="default_radio" class="form-check-input" type="radio" value="1" id="defaultRadio4" checked />
+                        <label class="form-check-label" for="defaultRadio4">
+                        Negativo
+                        </label>
+                        </div>
+                        </div>
+                        <div class="col-xxl-12">
 
-                                <div class="col-xxl-12">
-                            <!--
-                                <div class="col-12">
-                                <label class="form-label" for="bootstrap-maxlength-example2">Observaciones:</label>
-                                <textarea id="defaultInput" class="form-control bootstrap-maxlength-example" rows="2" maxlength="250"></textarea>
-                                </div>
-                            -->
-                            <div class="mb-3">
-                            <label for="defaultInput" class="form-label">Observaciones</label>
-                            <input id="observaciones" name="observaciones" class="form-control" type="text" placeholder="Observaciones" />
-                            </div>
-                        </div><!--end col-->
-
-                <div class="col-12 text-center demo-vertical-spacing">
-                  <button type="submit" class="btn btn-primary me-sm-3 me-1">Guardar</button>
-                  <button type="reset" class="btn btn-label-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
-                </div>
-               {!! Form::close()!!}
+                        <div class="mb-3">
+                        <label for="defaultInput" class="form-label">Observaciones</label>
+                        <input id="observaciones" name="observaciones" class="form-control" type="text" placeholder="Observaciones" />
+                        </div>
+                        </div>
+                        <div class="col-12 text-center demo-vertical-spacing">
+                        <button type="submit" class="btn btn-primary me-sm-3 me-1">Guardar</button>
+                        <button type="reset" class="btn btn-label-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                        </div>
+              {!! Form::close()!!}
             </div>
           </div>
         </div>
@@ -299,6 +289,49 @@
     });
 
     /**************REGISTRAR RESULTADO DE LA PRUEBA PARA UN NUEVO VISITANTE  ********/
+      $('#form_nuevo_visitante').submit(function(e){
+      e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
+      var data = $('#form_nuevo_visitante').serialize();
+      $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');
+      $.ajax({
+                //url: "/user/" + user_id,
+                url: "movimientos",
+                headers: {'X-CSRF-TOKEN': $('#form_nuevo_visitante #_token').val()},
+                type: "POST",
+                // datatype:"json",
+                cache: false,
+                data:  data,
+                success: function (response)
+                {
+                    var json = $.parseJSON(response);
+                    console.log(json.user_id);
+                    var id = btoa(json.user_id);
+
+                    Swal.fire({
+                              title:'¡Datos Insertados!!!!!',
+                              text:'Datos Ingresados con Exito',
+                              icon:"success",
+                              customClass:{confirmButton:"btn btn-primary"},
+                              buttonsStyling:!1
+                            })
+
+                    $('#newVisitanteModal').modal('hide');
+                     window.location="consulta?id="+id;
+
+                },error: function (data)
+                {
+                    var errors = data.responseJSON;
+                    $.each( errors.errors, function( key, value )
+                        {
+                          toastr.error(value);
+                          return false;
+                        });
+                    //$('input').iCheck('enable');
+                    $('#main-form input, #main-form button').removeAttr('disabled');
+                    $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
+                }
+             });
+    });
 
 
   </script>
