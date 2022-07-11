@@ -31,7 +31,7 @@
                 <div class="content-left">
                   <span>Pruebas en Existencia</span>
                   <div class="d-flex align-items-end mt-2">
-                    <h4 class="mb-0 me-2">{{ $list_existencia[0]['existencia'] }}</h4>
+                    <h4 class="mb-0 me-2">{{ $list_existencia[0]['existencia'] }}  @php $exitencia = $list_existencia[0]['existencia'];   @endphp</h4>
                     {{-- <small class="text-success">(+18%)</small> --}}
                   </div>
                   <small>Total</small>
@@ -58,9 +58,33 @@
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Gerencia</th>
-                        <th></th>
+                         <th>Acción</th>
                       </tr>
                     </thead>
+                    <tbody>
+                      @foreach ($datos as $row)
+                          <tr class="row{{ $row->id_personal }}">
+                          <td>{{ $row->id_personal }}</td>
+                          <td>{{ $row->cedula }}</td>
+                          <td>{{ $row->tx_nombres }}</td>
+                          <td>{{ $row->tx_apellidos }}</td>
+                          <td>{{ $row->getgerencia->descripcion }}</td>
+                          <td>
+                           <div class="btn-group">
+
+                            <button class="btn btn-primary btn-sm btn-circle btnPrb">
+                              <i class="bx bx-detail" data-toggle="tooltip" data-placement="top" title="Cargar Resultado"></i>
+                            </button>
+
+                              <button class="btn btn-success  btn-sm btn-circle btnCsta"><i class="bx bx-link-alt" data-toggle="tooltip" data-placement="top" title="Historico de Pruebas"></i>
+                              </button>
+                           </div>
+
+                          </td>
+                          </tr>
+
+                      @endforeach
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -85,7 +109,6 @@
 <script src="/assets/js/forms-selects.js"></script>
   <script>
     var user_id, opcion;
-    opcion = 4;
     tablaModulos =  $('#tablaModulos').DataTable({ 
        language: {
         "decimal": "",
@@ -121,38 +144,42 @@
             { extend: 'csv', className: 'btn-primary' },
             { extend: 'print', className: 'btn-primary' },    
           ],
-    "ajax":{            
-        "url": "{{ url('personals') }}", 
-        "method": 'GET', //usamos el metodo POST
-        "dataSrc":""
-    },
-    "columns":[
-        {"data": "id_personal"},
-        {"data": "cedula"},
-        {"data": "tx_nombres"},
-        {"data": "tx_apellidos"},
-        {"data": "id_gerencia"},
-        
-        
-        {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='bx bx-detail' data-toggle='tooltip' data-placement='top' title='Cargar Resultado'></i></button><button class='btn btn-success  btn-sm btn-circle btnCsta'><i class='bx bx-link-alt' data-toggle='tooltip' data-placement='top' title='Historico de Pruebas'></i></button></div>"}
-    ]
+   
 });
     var fila; //captura la fila, para editar o eliminar
-//levanta la modal para colocar el resultado de la prueba        
+//levanta la modal para colocar el resultado de la prueba
+  var valida_ext = "<?php echo $exitencia; ?>";
+
 $(document).on("click", ".btnPrb", function(){           
 
-    fila2 = $(this).closest("tr");
+  fila2 = $(this).closest("tr");
 
-    id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID 
+  id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID 
 
+  if(valida_ext > 0)
+  {
     $('#id_personal').val(id);
     
     $(".modal-title").text("Ingresar Resultado de la Prueba"); 
 
-    $('#Modal1').modal('show');       
+    $('#Modal1').modal('show');  
+  }else{
+
+    Swal.fire({
+        title:'Alerta!',
+        text:'No hay Exsistencia de Pruebas en el Inventario',
+        icon:"warning",
+        customClass:{confirmButton:"btn btn-primary"},
+        buttonsStyling:!1
+      })
+
+  }
+    
+
+         
 });
 
- //va a la ruta para la condulta del recor y manda id       
+ //va a la ruta para la condulta del recor y manda id      
   $(document).on("click", ".btnCsta", function(){           
 
       fila = $(this).closest("tr");
