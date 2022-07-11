@@ -47,15 +47,14 @@
                                   <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="cardOpt6">
-                                  <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                  <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                  <a class="dropdown-item" href="javascript:void(0);">Ver Mas</a>
                                 </div>
                               </div>
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Empleados</h4>
                               <a href="/personal" class="text-success fw-semibold">
-                                <div data-i18n="Ver mas">Ver mas</div>
+                                <div data-i18n="Ingresar Módulo">Ingresar Módulo</div>
                               </a>
                           </div>
                         </div>
@@ -72,15 +71,14 @@
                                   <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="cardOpt6">
-                                  <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                  <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                  <a class="dropdown-item" href="javascript:void(0);">Ver Mas</a>
                                 </div>
                               </div>
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Visitantes</h4>
                              <a href="/visitante" class="text-success fw-semibold">
-                                <div data-i18n="Ver mas">Ver mas</div>
+                                <div data-i18n="Ingresar Módulo">Ingresar Módulo</div>
                               </a>
                           </div>
                         </div>
@@ -100,15 +98,14 @@
                                   <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="cardOpt6">
-                                  <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                  <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                  <a class="dropdown-item" href="javascript:void(0);">Ver Mas</a>
                                 </div>
                               </div>
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Inventario</h4>
                             <a href="/inventario" class="text-success fw-semibold">
-                                <div data-i18n="Ver mas">Ver mas</div>
+                                <div data-i18n="Ingresar Módulo">Ingresar Módulo</div>
                               </a>
                           </div>
                         </div>
@@ -125,15 +122,44 @@
                                   <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="cardOpt6">
-                                  <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                  <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                  <a class="dropdown-item" href="javascript:void(0);">Ver Mas</a>
                                 </div>
                               </div>
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Consulta</h4>
                            <a href="/view" class="text-success fw-semibold">
-                                <div data-i18n="Ver mas">Ver mas</div>
+                                <div data-i18n="Ingresar Módulo">Ingresar Módulo</div>
+                              </a>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                                    <div class="col-md-12 col-lg-8 ">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col-3 mb-3">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="card-body pb-0 px-0 px-md-0">
+                          <img src="../../assets/img/illustrations/reportes.png" height="80" alt="View Badge User" data-app-dark-img="illustrations/reportes.png" data-app-light-img="illustrations/acompanamiento-empleados.html">
+                        </div>
+                              <div class="dropdown">
+                                <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="cardOpt6">
+                                  <a class="dropdown-item" href="javascript:void(0);">Ver Mas</a>
+                                </div>
+                              </div>
+                            </div>
+                            <span class="d-block"></span>
+                            <h4 class="card-title mb-1" color="white">Reportes</h4>
+                              <a href="/reportes" class="text-success fw-semibold">
+                                <div data-i18n="Ingresar Módulo">Ingresar Módulo</div>
                               </a>
                           </div>
                         </div>
