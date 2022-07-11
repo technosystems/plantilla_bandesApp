@@ -1,7 +1,7 @@
 <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
     <div class="modal-dialog modal-centered modal-lg">
         <div class="modal-content ">
-aqui
+
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalgridLabel">Grid Modals</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

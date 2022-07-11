@@ -34,14 +34,14 @@
                             <div class="col-md">
                               <small class="text-light fw-semibold">Resultado de la Prueba</small>
                               <div class="form-check mt-3">
-                                <input name="default_radio_1" class="form-check-input" type="radio" value="2" id="defaultRadio1" />
-                                <label class="form-check-label" for="defaultRadio1">
+                                <input name="default_radio_1" class="form-check-input" type="radio" value="2" id="defaultRadio3" />
+                                <label class="form-check-label" for="defaultRadio3">
                                   Positivo
                                 </label>
                               </div>
                               <div class="form-check">
-                                <input name="default_radio_1" class="form-check-input" type="radio" value="1" id="defaultRadio2" checked />
-                                <label class="form-check-label" for="defaultRadio2">
+                                <input name="default_radio_1" class="form-check-input" type="radio" value="1" id="defaultRadio4" checked />
+                                <label class="form-check-label" for="defaultRadio4">
                                   Negativo
                                 </label>
                               </div>

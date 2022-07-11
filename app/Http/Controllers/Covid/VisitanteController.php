@@ -103,9 +103,8 @@ class VisitanteController extends Controller
          $data2['desde']          = substr($request->flatpickr_range2, 0,10);
          $data2['hasta']          = substr($request->flatpickr_range2, -10);
          $data2['id_personal']    =  $id;
-         $data2['resultado']       = $request->default_radio_3;
+         $data2['resultado']       = $request->default_radio;
          $data2['observacion']     = $request->observaciones;
-// dd($data2);
 
          $guardar = Movimientos::create($data2);  // }else{
 

@@ -55,7 +55,7 @@
 
                  <!-- Nuevo Visitante -->
                  <div class="col-12 mb-3">
-                    <button class="btn btn-primary btn-md" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#addPermissionModal"><span>Nuevo Visitante</span>
+                    <button class="btn btn-primary btn-md" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#newVisitanteModal"><span>Nuevo Visitante</span>
                     </button>
                   </div>
 
@@ -85,14 +85,14 @@
 
   </div>
 
-     <!-- Add Permission Modal -->
-      <div class="modal fade" id="addPermissionModal" tabindex="-1" aria-hidden="true">
+     <!--  Modal Nuevo visitante-->
+      <div class="modal fade" id="newVisitanteModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-simple">
           <div class="modal-content p-3 p-md-5">
             <div class="modal-body">
               <button type="button" class="btn-close btn-pinned" data-bs-dismiss="modal" aria-label="Close"></button>
               <div class="text-center mb-4">
-                <h3>Ingresar nuevo visitante!</h3>
+                <h3> Ingrese nuevo Visitante</h3>
 
               </div>
               {!! Form::open(['route' => ['visitante.store'],'method' => 'POST']) !!}
@@ -113,23 +113,24 @@
                           <label for="flatpickr-range2" class="form-label">Rango de Duración:</label>
                           <input type="text" class="form-control" placeholder="YYYY-MM-DD to YYYY-MM-DD" id="flatpickr-range2" name="flatpickr_range2" />
                  </div>
-                     <div class="col-xxl-12">
+                           <div class="col-xxl-12">
                             <div class="col-md">
                               <small class="form-label">Resultado de la Prueba:</small>
                               <div class="form-check mt-3">
-                                <input name="default-radio-3" class="form-check-input" type="radio" value="2" id="defaultRadio3" />
+                                <input name="default_radio" class="form-check-input" type="radio" value="2" id="defaultRadio3" />
                                 <label class="form-check-label" for="defaultRadio3">
                                   Positivo
                                 </label>
                               </div>
                               <div class="form-check">
-                                <input name="default-radio-3" class="form-check-input" type="radio" value="1" id="defaultRadio4" checked />
+                                <input name="default_radio" class="form-check-input" type="radio" value="1" id="defaultRadio4" checked />
                                 <label class="form-check-label" for="defaultRadio4">
                                   Negativo
                                 </label>
                               </div>
                             </div>
                         </div>
+
                                 <div class="col-xxl-12">
                             <!--
                                 <div class="col-12">
@@ -152,10 +153,7 @@
           </div>
         </div>
       </div>
-      <!--/ Add Permission Modal -->
-
-
-
+      <!-- Fin Modal Nuevo visitante -->
 
 @endsection
 
@@ -170,6 +168,7 @@
   <script src="/assets/js/forms-selects.js"></script>
 
   <script>
+
       var user_id, opcion;
       opcion = 4;
       tablaModulos =  $('#tablaModulos').DataTable({
@@ -198,229 +197,110 @@
             }
           },
           dom: 'Bfrtip',
-           responsive:false,
-           lengthChange: true,
-           buttons: [
-            //'copy', 'csv', 'excel', 'pdf','print',
-            { extend: 'pdf', className: 'btn-primary' },
-            { extend: 'copy', className: 'btn-primary' },
-            { extend: 'csv', className: 'btn-primary' },
-            { extend: 'print', className: 'btn-primary' },
-           // { extend: 'print', text: '<i class="fas fa-print"></i> Print',className: 'btn-primary' },
-
-        ],
+          responsive:false,
+          lengthChange: true,
+          buttons: [
+                    //'copy', 'csv', 'excel', 'pdf','print',
+                    { extend: 'pdf', className: 'btn-primary' },
+                    { extend: 'copy', className: 'btn-primary' },
+                    { extend: 'csv', className: 'btn-primary' },
+                    { extend: 'print', className: 'btn-primary' },
+                    // { extend: 'print', text: '<i class="fas fa-print"></i> Print',className: 'btn-primary' },
+                  ],
           "ajax":{
           "url": "{{ url('visitantes') }}",
           "method": 'GET', //usamos el metodo POST
           "dataSrc":""
           },
           "columns":[
-          {"data": "id_personal"},
-          {"data": "cedula"},
-          {"data": "tx_nombres"},
-          {"data": "tx_apellidos"},
-          {"data": "id_estatus"},
+                      {"data": "id_personal"},
+                      {"data": "cedula"},
+                      {"data": "tx_nombres"},
+                      {"data": "tx_apellidos"},
+                      {"data": "id_estatus"},
 
-          {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='bx bx-detail' data-toggle='tooltip' data-placement='top' title='Registrar Resultado'></i></button><button class='btn btn-success btn-sm btn-circle btnCsta'><i class='bx bx-link-alt'  data-toggle='tooltip' data-placement='top' title='Histórico de pruebas'></i></button></div>"}
+                      {"defaultContent": " <div class='btn-group'><button class='btn btn-primary btn-sm btn-circle btnPrb'><i class='bx bx-detail' data-toggle='tooltip' data-placement='top' title='Registrar Resultado'></i></button><button class='btn btn-success btn-sm btn-circle btnCsta'><i class='bx bx-link-alt'  data-toggle='tooltip' data-placement='top' title='Histórico de pruebas'></i></button></div>"}
           ]
-      });
+      }); //FIN DE  tablaModulos
       var fila; //captura la fila, para editar o eliminar
 
 
-      /************** levanta la modal para registrar los datos del resultado de la prueba covid ********/
-      $(document).on("click", ".btnPrb", function(){
+    /************** levanta la modal para registrar los datos del resultado de la prueba covid ********/
+    $(document).on("click", ".btnPrb", function(){
 
-        fila2 = $(this).closest("tr");
+      fila2 = $(this).closest("tr");
 
-        id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID
+      id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID
 
-        $('#id_personal').val(id);
+      $('#id_personal').val(id);
 
-        $(".modal-title").text("Ingresar Resultado de la Prueba");
+      $(".modal-title").text("Ingresar Resultado de la Prueba");
 
-        $('#Modal1').modal('show');
+      $('#Modal1').modal('show');
+    });
 
-      });
-//va a la ruta para la condulta del recor y manda id
-  $(document).on("click", ".btnCsta", function(){
+    /************** va a la ruta para la consulta del recor y manda id ********/
+    $(document).on("click", ".btnCsta", function(){
 
-      fila = $(this).closest("tr");
+    fila = $(this).closest("tr");
 
-      id  = parseInt(fila.find('td:eq(0)').text()); //capturo el ID
+    id  = parseInt(fila.find('td:eq(0)').text()); //capturo el ID
 
-      id = btoa(id); // Base64 encode the String
+    id = btoa(id); // Base64 encode the String
 
-      var opcion = 2;
+    var opcion = 2;
 
-      window.location="consulta?id="+id;
+    window.location="consulta?id="+id;
+    });
 
-  });
-      //submit para el Alta y Actualización
-      $('#form_prueba').submit(function(e){
-        e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
-        var data = $('#form_prueba').serialize();
-        $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');
-        $.ajax({
-                  //url: "/user/" + user_id,
-                  url: "movimientos",
-                  headers: {'X-CSRF-TOKEN': $('#form_prueba #_token').val()},
-                  type: "POST",
-                  // datatype:"json",
-                  cache: false,
-                  data:  data,
-                  success: function (response)
-                  {
-                      var json = $.parseJSON(response);
-                      console.log(json.user_id);
-                      var id = btoa(json.user_id);
-
-                      Swal.fire({
-                                title:'¡Datos Insertados!',
-                                text:'Datos Ingresados con Exito',
-                                icon:"success",
-                                customClass:{confirmButton:"btn btn-primary"},
-                                buttonsStyling:!1
-                              })
-                      $('#Modal1').modal('hide');
-                      window.location="consulta?id="+id;
-                  },error: function (data)
-                  {
-                      var errors = data.responseJSON;
-                      $.each( errors.errors, function( key, value )
-                          {
-                            toastr.error(value);
-                            return false;
-                          });
-                      //$('input').iCheck('enable');
-                      $('#main-form input, #main-form button').removeAttr('disabled');
-                      $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
-                  }
-               });
-      });
-
-      //submit para guardar el nuevo visitante
-//aqui
-
-  </script>
-
-  <script>
-
-      $('#edit-button').hide();
-       newUserForm.on('submit', function (e) {
-        var isValid = newUserForm.valid();
-        e.preventDefault();
-
-         if (isValid) {
-           var data = $('#usuarios-form').serialize();
-          //$('input').iCheck('disable');
-          //$('#usuarios-form input, #usuarios-form button').attr('disabled','true');
-          $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');
-
-              $.ajax({
-                url: $('#usuarios-form #_url').val(),
-                headers: {'X-CSRF-TOKEN': $('#usuarios-form #_token').val()},
-                type: 'POST',
+    /**************REGISTRAR RESULTADO DE LA PRUEBA CUANDO EL VISITANTE YA EXISTE  ********/
+    $('#form_prueba').submit(function(e){
+      e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
+      var data = $('#form_prueba').serialize();
+      $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');
+      $.ajax({
+                //url: "/user/" + user_id,
+                url: "movimientos",
+                headers: {'X-CSRF-TOKEN': $('#form_prueba #_token').val()},
+                type: "POST",
+                // datatype:"json",
                 cache: false,
-                data: data,
-                success: function (response) {
-                  var json = $.parseJSON(response);
-                  if(json.success){
+                data:  data,
+                success: function (response)
+                {
+                    var json = $.parseJSON(response);
+                    console.log(json.user_id);
+                    var id = btoa(json.user_id);
 
-                    $('#usuarios-form #submit').hide();
-                    $('#usuarios-form #edit-button').attr('href', $('#usuarios-form #_url').val() + '/' + json.user_id + '/edit');
-                    $('#usuarios-form #edit-button').removeClass('hide');
-                    tablaModulos.ajax.reload(null, false);
-                    var timerInterval;
                     Swal.fire({
+                              title:'¡Datos Insertados!!!!!',
+                              text:'Datos Ingresados con Exito',
+                              icon:"success",
+                              customClass:{confirmButton:"btn btn-primary"},
+                              buttonsStyling:!1
+                            })
 
-                         title:'¡Bien hecho!',
-                        text:'Datos ingresados',
-                        icon:"success",
-                        customClass:{confirmButton:"btn btn-primary"},
-                        buttonsStyling:!1
-                      })
+                    $('#Modal1').modal('hide');
+                     window.location="consulta?id="+id;
 
-
-                 }
-                },error: function (data) {
-                  var errors = data.responseJSON;
-                  $.each( errors.errors, function( key, value ) {
-                    toastr.error(value);
-                    return false;
-                  });
-                  //$('input').iCheck('enable');
-                  $('#formModulos input, #main-form button').removeAttr('disabled');
-                  $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
+                },error: function (data)
+                {
+                    var errors = data.responseJSON;
+                    $.each( errors.errors, function( key, value )
+                        {
+                          toastr.error(value);
+                          return false;
+                        });
+                    //$('input').iCheck('enable');
+                    $('#main-form input, #main-form button').removeAttr('disabled');
+                    $('#ajax-icon').removeClass('fas fa-spin fa-sync-alt').addClass('far fa-save');
                 }
              });
+    });
+
+    /**************REGISTRAR RESULTADO DE LA PRUEBA PARA UN NUEVO VISITANTE  ********/
 
 
-         }
-         else
-         {
-           return false;
-         }
-      });
   </script>
 
-  <script>
-   /* $(document).on("click", ".btnBorrar", function(e){
-      e.preventDefault();
-      fila = $(this);
-      user_id = parseInt($(this).closest('tr').find('td:eq(0)').text()) ;
-      opcion = 3; //eliminar
-      Swal.fire({
-          title: '¿Estás seguro(a)?',
-          text: "¡Si confirmas no habrá marcha atrás!",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonText: '¡Eliminar!',
-          customClass: {
-            confirmButton: 'btn btn-primary',
-            cancelButton: 'btn btn-outline-danger ms-1'
-          },
-          buttonsStyling: false
-        }).then(function (result) {
-          if (result.value) {
-          $.ajax({
-            url: "/users/"+user_id+'/delete' ,
-            type: "GET",
-            datatype:"json",
-
-            success: function() {
-                tablaModulos.row(fila.parents('tr')).remove().draw();
-                 var timerInterval;
-                    Swal.fire({
-                      title: '¡Datos eliminados!',
-                      icon: 'success',
-                      timer: 1000,
-                      timerProgressBar: false,
-                      didOpen: () => {
-                        Swal.showLoading();
-                        timerInterval = setInterval(() => {
-                          const content = Swal.getHtmlContainer();
-                          if (content) {
-                            const b = content.querySelector('b');
-                            if (b) {
-                              b.textContent = Swal.getTimerLeft();
-                            }
-                          }
-                        }, 100);
-                      },
-                      willClose: () => {
-                        clearInterval(timerInterval);
-                      }
-                    }).then(result => {
-                      /// Read more about handling dismissals below
-                      if (result.dismiss === Swal.DismissReason.timer) {
-                        console.log('I was closed by the timer');
-                      }
-                    });
-             }
-          });
-
-          }
-        });
-    });*/
-  </script>
 @endpush
