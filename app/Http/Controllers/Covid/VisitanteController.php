@@ -104,7 +104,6 @@ class VisitanteController extends Controller
          $data2['hasta']          = substr($request->flatpickr_range2, -10);
          $data2['id_personal']    =  $id;
          $data2['resultado']       = $request->default_radio_3;
-
          $data2['observacion']     = $request->observaciones;
 // dd($data2);
 
