@@ -40,6 +40,7 @@ Route::middleware(['auth',])->group(function () {
   Route::get('pdfrecibo/{id}', 'Covid\ReciboController@create')->name('pdfrecibo');
   Route::get('view', 'Covid\ConsultarController@consulta');
   Route::resource('reportes', 'Covid\ReportesController');
+  Route::post('pdfmov', 'Covid\ReportesController@pdfmov')->name('pdfmov');
 
   //Route::resource('personal', Covid\PersonalController::class);
 

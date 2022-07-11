@@ -60,11 +60,14 @@ class InventarioController extends Controller
 
          $id_estatus = "5";
 
+         $fecha = date('Y-m-d');
+
          $data = array();
          $data['id_tipo_prueba'] = $request->id_tipo_prueba;
          $data['cantidad']       = $request->cantidad;
          $data['observacion']    = $request->observacion;
          $data['id_estatus']     = $id_estatus;
+         $data['fecha']          = $fecha;
 
          
         $guardar = Inventario::create($data);

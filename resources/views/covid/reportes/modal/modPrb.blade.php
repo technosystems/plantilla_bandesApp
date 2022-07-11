@@ -1,4 +1,4 @@
-  <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+  <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
     <div class="modal-dialog modal-centered modal-lg">
         <div class="modal-content ">
             <div class="modal-header">
@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                 <form action="{{ route('reportes.store') }}" method="POST" target="_blank " style="display: inline-block;">
+                 <form action="{{ route('pdfmov') }}" method="POST" target="_blank " style="display: inline-block;">
                               @csrf
                       <input type="hidden" id="_url" value="{{ url('user') }}">
                       <input type="hidden" id="_token" value="{{ csrf_token() }}">
@@ -15,14 +15,14 @@
                          <!-- Date Picker-->
                           <div class="col-md-6 col-12 mb-4">
                             <label for="flatpickr-date" class="form-label">Desde</label>
-                            <input type="date" class="form-control" placeholder="YYYY-MM-DD" id="desde_inv" name="desde_inv" />
+                            <input type="date" class="form-control" placeholder="YYYY-MM-DD" id="desde_prb" name="desde_prb" />
                           </div>
                           <!-- /Date Picker -->
 
                           <!-- Date Picker-->
                           <div class="col-md-6 col-12 mb-4">
                             <label for="flatpickr-date" class="form-label">Hasta</label>
-                            <input type="date" class="form-control" placeholder="YYYY-MM-DD" id="hasta_inv" name="hasta_inv" />
+                            <input type="date" class="form-control" placeholder="YYYY-MM-DD" id="hasta_prb" name="hasta_prb" />
                           </div>
                           <!-- /Date Picker -->
                         

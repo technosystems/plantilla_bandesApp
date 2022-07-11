@@ -59,9 +59,10 @@
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Inventario</h4>
-                              <a href="#Modal2" class="text-success fw-semibold">
-                                <div data-i18n="Ejecutar Reporte">Ejecutar Reporte</div>
-                              </a>
+                            <button class="btn btn-primary btn-sm btn-circle btnInv">
+                              Ejecutar Reporte
+                            </button>
+                             
                           </div>
                         </div>
                       </div>
@@ -75,9 +76,9 @@
                             </div>
                             <span class="d-block"></span>
                             <h4 class="card-title mb-1" color="white">Pruebas Efectuadas</h4>
-                             <a href="#" class="text-success fw-semibold">
-                                <div data-i18n="Ejecutar Reporte">Ejecutar Reporte</div>
-                              </a>
+                             <button class="btn btn-primary btn-sm btn-circle btnPrb">
+                                Ejecutar Reporte
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -87,6 +88,8 @@
 
     </div>
     @include('covid.reportes.modal.prueba')
+    @include('covid.reportes.modal.modPrb')
+    
   </div>
 
 
@@ -168,8 +171,24 @@ $('#form_prueba').submit(function(e){
                                    
 });
 
-$('#Modal2').modal('toggle');
-$('#Modal2').modal('show')
+
+
+$(document).on("click", ".btnInv", function(){           
+    
+    $(".modal-title").text("Reporte en Formato PDF Inventario de Entrada"); 
+
+    $('#Modal2').modal('show');       
+});
+
+$(document).on("click", ".btnPrb", function(){           
+    
+    $(".modal-title").text("Reporte en Formato PDF Movimientos de Pruebas Efectuadas"); 
+
+    $('#Modal3').modal('show');       
+});
+
+
+
 
  
 </script>
