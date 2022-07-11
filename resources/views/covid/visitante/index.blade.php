@@ -12,7 +12,7 @@
                 <div class="content-left">
                   <span>Visitantes</span>
                   <div class="d-flex align-items-end mt-2">
-                    <h4 class="mb-0 me-2">{{ App\Models\Visitante::count() }}</h4>
+                    <h4 class="mb-0 me-2">{{ $visitante }}</h4>
                    {{--  <small class="text-success">(+29%)</small> --}}
                   </div>
                   <small>Total Visitantes</small>
@@ -295,7 +295,8 @@
       $('#ajax-icon').removeClass('far fa-save').addClass('fas fa-spin fa-sync-alt');
       $.ajax({
                 //url: "/user/" + user_id,
-                url: "movimientos",
+                //url: "movimientos",
+                url: "visitante",
                 headers: {'X-CSRF-TOKEN': $('#form_nuevo_visitante #_token').val()},
                 type: "POST",
                 // datatype:"json",

@@ -106,7 +106,7 @@ class VisitanteController extends Controller
          $data2['resultado']       = $request->default_radio;
          $data2['observacion']     = $request->observaciones;
 
-         $guardar = Movimientos::create($data2);  // }else{
+         $guardar2 = Movimientos::create($data2);  // }else{
 
         }else{
             // si esta mal redirigelo al home con un mensaje
@@ -131,7 +131,8 @@ class VisitanteController extends Controller
 
         //Inventario::create($request->only('name'));
 
-  return redirect()->route('visitante.index');
+        //return redirect()->route('visitante.index');
+        return json_encode(['user_id' => $guardar->id_personal]);
     }
 
     /**

@@ -77,6 +77,11 @@
           </a>
         
         </li>
+        <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
+          <a href="/inventario" class="menu-link">
+            <div data-i18n="Inventario">Inventario</div>
+          </a>
+        </li>
          <li class="menu-item {{ request()->routeIs('roles*') ? 'active open' : '' }}">
            <a href="/personal" class="menu-link">
             <div data-i18n="Empleados">Empleados</div>
@@ -86,11 +91,6 @@
          <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
           <a href="/visitante" class="menu-link">
             <div data-i18n="Visitantes">Visitantes</div>
-          </a>
-        </li>
-        <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
-          <a href="/inventario" class="menu-link">
-            <div data-i18n="Inventario">Inventario</div>
           </a>
         </li>
          <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
