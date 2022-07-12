@@ -2,3 +2,8 @@ correr comando composer para instalar libreria fpdf
 
 composer require codedge/laravel-fpdf
 
+
+
+usuario: pruebas_covid@gmail.com
+clave: 123456
+
