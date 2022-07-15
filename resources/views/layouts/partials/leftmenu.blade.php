@@ -82,6 +82,17 @@
             <div data-i18n="Inventario">Inventario</div>
           </a>
         </li>
+        <li class="menu-item {{ request()->routeIs('permisos*') ? 'active open' : '' }}">
+          <a href="/convocatoria" class="menu-link">
+            <div data-i18n="Tipo Convocatoria">Tipo Convocatoria</div>
+          </a>
+        </li>
+        <li class="menu-item {{ request()->routeIs('roles*') ? 'active open' : '' }}">
+           <a href="/lista" class="menu-link">
+            <div data-i18n="Lista Convocados">Lista Convocados</div>
+          </a>
+      
+        </li>
          <li class="menu-item {{ request()->routeIs('roles*') ? 'active open' : '' }}">
            <a href="/personal" class="menu-link">
             <div data-i18n="Empleados">Empleados</div>

@@ -15,7 +15,7 @@ class Personal extends Model
 
     protected $primaryKey = 'id_personal';
 
-    protected $fillable = ['id_personal' ,'tx_nombres', 'tx_apellidos', 'cedula', 'id_estatus', 'id_gerencia'];
+    protected $fillable = ['id_personal' ,'tx_nombres', 'tx_apellidos', 'cedula', 'id_estatus', 'id_gerencia','convocado'];
 
 	protected $hidden = ['created_at', 'updated_at'];
 

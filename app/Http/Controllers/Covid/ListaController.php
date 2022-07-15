@@ -8,10 +8,8 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\Personal;
 use App\Models\Existencia;
-use App\Models\Convocatoria;
 
-
-class PersonalController extends Controller
+class ListaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,34 +19,13 @@ class PersonalController extends Controller
     public function index()
     {
         
-        $list_existencia = Existencia::get();
+      
 
         $id_estatus = 3; // estatus empleado
-        
-        $model_convocatoria = Convocatoria::get();
 
-        $id_convocatoria = $model_convocatoria[0]['tipo'];
+        $datos =  Personal::where('id_estatus', $id_estatus)->get();
 
-        
-        if($id_convocatoria == 1) //lista
-        {
-            $datos =  Personal::where('id_estatus', $id_estatus)
-                 ->where('convocado', '=', 1)
-                 ->get();
-
-            $personal =  Personal::where('id_estatus', $id_estatus)
-                             ->where('convocado', '=', 1)
-                             ->count();
-        }else{
-            // todos
-             $datos =  Personal::where('id_estatus', $id_estatus)->get();
-
-             $personal =  Personal::where('id_estatus', $id_estatus)->count();
-        }
-        
-        //dd($id_convocatoria);
-
-        return view('covid.personal.index',compact('list_existencia','personal','datos'));
+        return view('covid.lista.index',compact('datos'));
     }
 
     public function getPersonal()
@@ -101,7 +78,21 @@ class PersonalController extends Controller
      */
     public function edit($id)
     {
-        //
+        //dd($id);
+
+        $convoca = 1;
+
+        /*actualizo */
+            $data = Personal::where('id_personal',$id)->update(['convocado' => $convoca]);
+
+          
+          if($data)
+          {
+            $response = "true";
+          }else{
+             $response = "false";
+          }
+          return json_encode($response);
     }
 
     /**
@@ -124,6 +115,6 @@ class PersonalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }

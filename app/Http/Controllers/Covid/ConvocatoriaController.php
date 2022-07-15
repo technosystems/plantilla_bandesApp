@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Models\Convocatoria;
 use App\Models\Personal;
 use App\Models\Existencia;
-use App\Models\Convocatoria;
+use App\Models\Inventario;
 
-
-class PersonalController extends Controller
+class ConvocatoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,45 +20,11 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        
-        $list_existencia = Existencia::get();
+        //
+        //dd($request);
+         $model = Convocatoria::get();
 
-        $id_estatus = 3; // estatus empleado
-        
-        $model_convocatoria = Convocatoria::get();
-
-        $id_convocatoria = $model_convocatoria[0]['tipo'];
-
-        
-        if($id_convocatoria == 1) //lista
-        {
-            $datos =  Personal::where('id_estatus', $id_estatus)
-                 ->where('convocado', '=', 1)
-                 ->get();
-
-            $personal =  Personal::where('id_estatus', $id_estatus)
-                             ->where('convocado', '=', 1)
-                             ->count();
-        }else{
-            // todos
-             $datos =  Personal::where('id_estatus', $id_estatus)->get();
-
-             $personal =  Personal::where('id_estatus', $id_estatus)->count();
-        }
-        
-        //dd($id_convocatoria);
-
-        return view('covid.personal.index',compact('list_existencia','personal','datos'));
-    }
-
-    public function getPersonal()
-    {
-    
-        $id_estatus = 3; 
-
-        $data =  Personal::where('id_estatus', $id_estatus)->get();
-        //dd($data);
-        return $data;
+          return view('covid.convocatoria.index',compact('model'));
     }
 
     /**
@@ -79,7 +45,32 @@ class PersonalController extends Controller
      */
     public function store(Request $request)
     {
-       
+        //dd($request);
+
+         $fecha = date('Y-m-d');
+
+         $model = Convocatoria::get();
+
+         $tipo  = $request->tipo_convoca;
+         
+         $id_estatus = 3;
+
+        /*actualizo el tipo de convocatoria 1: lista, 2: General */
+
+        Convocatoria::where('id', $model[0]['id'])->update(['tipo' => $tipo]);
+
+         Personal::where('id_estatus', $id_estatus)->update(['convocado' => null]);
+
+        if( $tipo == 2)//general
+        {
+            return redirect('/personal');
+        }
+        if($tipo == 1)// lista
+        {
+            return redirect('/lista');
+        }
+
+
     }
 
     /**
