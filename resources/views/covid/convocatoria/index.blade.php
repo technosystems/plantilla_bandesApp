@@ -90,10 +90,10 @@
 
      
      });*/
-
+     var confirmed = false;
       $("#myform").on('submit', function(evt){
         evt.preventDefault();  
-      var $this = $(this);
+         var $this = $(this);
 
       Swal.fire({  
         title: 'Esta Operacion Eliminara la Lista Anterior',  
@@ -101,13 +101,13 @@
         confirmButtonText: `Guardar`,  
       }).then((result) => {  
 
-          if (result) {    
-            //Swal.fire('Saved!', '', 'success')
+          if (result.isConfirmed) {    
+            Swal.fire('Cambio Exitoso', '', 'success')
              //$this.submit();
              document.forms["myform"].submit();
 
           } else {    
-            //Swal.fire('Operacion Cancelada', '', 'info')
+            Swal.fire('Operacion Cancelada', '', 'info')
             evt.preventDefault();   
         }
       });
