@@ -32,7 +32,7 @@
                 <div class="content-left">
                   <span>Pruebas en Existencia</span>
                   <div class="d-flex align-items-end mt-2">
-                    <h4 class="mb-0 me-2">{{ $list_existencia[0]['existencia'] }}</h4>
+                    <h4 class="mb-0 me-2">{{ $list_existencia[0]['existencia'] }}  @php $exitencia = $list_existencia[0]['existencia'];   @endphp</h4>
                     {{-- <h4 class="mb-0 me-2">{{ App\Models\Existencia::obtenerExistencia() }}</h4>--}}
                     {{-- <small class="text-success">(+18%)</small> --}}
                   </div>
@@ -55,7 +55,7 @@
 
                  <!-- Nuevo Visitante -->
                  <div class="col-12 mb-3">
-                    <button class="btn btn-primary btn-md" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#newVisitanteModal"><span>Nuevo Visitante</span>
+                    <button class="btn btn-primary btn-md btnNew" tabindex="0" aria-controls="DataTables_Table_0" type="button" ><span>Nuevo Visitante</span>
                     </button>
                   </div>
 
@@ -214,6 +214,7 @@
       }); //FIN DE  tablaModulos
       var fila; //captura la fila, para editar o eliminar
 
+      var valida_ext = "<?php echo $exitencia; ?>";
 
     /************** levanta la modal para registrar los datos del resultado de la prueba covid ********/
     $(document).on("click", ".btnPrb", function(){
@@ -222,11 +223,28 @@
 
       id  = parseInt(fila2.find('td:eq(0)').text()); //capturo el ID
 
-      $('#id_personal').val(id);
+        if(valida_ext > 0)
+        {
+          $('#id_personal').val(id);
+          
+          $(".modal-title").text("Ingresar Resultado de la Prueba"); 
 
-      $(".modal-title").text("Ingresar Resultado de la Prueba");
+          $('#Modal1').modal('show');  
+        }else{
 
-      $('#Modal1').modal('show');
+          Swal.fire({
+              title:'Alerta!',
+              text:'No hay Exsistencia de Pruebas en el Inventario',
+              icon:"warning",
+              customClass:{confirmButton:"btn btn-primary"},
+              buttonsStyling:!1
+            })
+
+        }
+
+      //$('#id_personal').val(id);
+      //$(".modal-title").text("Ingresar Resultado de la Prueba");
+      //$('#Modal1').modal('show');
     });
 
     /************** va a la ruta para la consulta del recor y manda id ********/
@@ -334,6 +352,26 @@
              });
     });
 
+    
+   $(document).on("click", ".btnNew", function(){
+
+
+      if(valida_ext > 0)
+      {
+        $('#newVisitanteModal').modal('show');
+      }else{
+
+       $('#newVisitanteModal').modal('hide');
+        Swal.fire({
+            title:'Alerta!',
+            text:'No hay Exsistencia de Pruebas en el Inventario',
+            icon:"warning",
+            customClass:{confirmButton:"btn btn-primary"},
+            buttonsStyling:!1
+          })
+
+      }
+ });
 
   </script>
 
